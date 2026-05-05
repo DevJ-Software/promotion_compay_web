@@ -1,0 +1,1107 @@
+---
+const year = new Date().getFullYear();
+const BASE = import.meta.env.BASE_URL;
+---
+
+<div class="page">
+	<header class="topbar">
+		<div class="container topbar-inner">
+			<a class="brand" href="#inicio" aria-label="ComPay">
+				<span class="brand-mark" aria-hidden="true"></span>
+				<span class="brand-name">ComPay</span>
+			</a>
+			<nav class="nav" aria-label="Navegación">
+				<a href="#como-funciona">Cómo funciona</a>
+				<a href="#apps">Apps</a>
+				<a href="#herramientas">Gestión</a>
+				<a href="#features">Features</a>
+				<a href="#planes">Planes</a>
+				<a href="#faq">FAQ</a>
+			</nav>
+			<div class="nav-cta">
+				<a class="btn" href="#contacto">Ver demo</a>
+				<a class="btn btn-primary" href="#contacto">Quiero ComPay</a>
+			</div>
+		</div>
+	</header>
+
+	<main id="inicio">
+		<section class="hero">
+			<div class="container hero-inner">
+				<div class="hero-copy">
+					<span class="chip"
+						>Enfoque principal: negocios en Cuba • Tickets • Cocina por estados • Menú TV + llamados</span
+					>
+					<h1>
+						Software profesional de alto impacto para tickets y cocina —
+						<span class="grad">de primera línea en su tipo en Cuba.</span>
+					</h1>
+					<p class="hero-subhead">
+						<strong>Principalmente pensado para negocios cubanos</strong>: cafeterías, pizzerías y locales
+						con alta rotación. ComPay lleva tus órdenes del mostrador al cliente con claridad visual y
+						un equipo que trabaja sin perder tiempo.
+					</p>
+					<p class="muted lead">
+						Plataforma de gestión profesional para crear tickets con número y nombre, mover pedidos por
+						estados y mostrar llamados en TV: menos confusión, más fluidez y una presencia tecnológica
+						de nivel alto frente al público.
+					</p>
+					<div class="hero-cta">
+						<a class="btn btn-primary" href="#contacto">Solicitar demo</a>
+						<a class="btn" href="#como-funciona">Ver cómo funciona</a>
+					</div>
+					<div class="trust">
+						<div class="trust-item">
+							<span class="kpi">Cuba-first</span>
+							<span class="muted">Producto enfocado principalmente en el mercado cubano</span>
+						</div>
+						<div class="trust-item">
+							<span class="kpi">Alto impacto</span>
+							<span class="muted">Operación cara al cliente • cocina ordenada • TV que vende</span>
+						</div>
+						<div class="trust-item">
+							<span class="kpi">1ª línea</span>
+							<span class="muted">Entre las soluciones más completas de esta categoría en Cuba</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="hero-visual card" aria-label="Capturas reales de ComPay">
+					<div class="mock-top">
+						<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+						<span class="mock-title">ComPay Flow · app móvil</span>
+					</div>
+					<div class="hero-devices">
+						<figure class="device-frame">
+							<img
+								src={`${BASE}images/compay/revision-orden.png`}
+								alt="Pantalla de revisión de orden en caja: ticket con ítems, total y crear orden."
+								width="393"
+								height="852"
+								loading="eager"
+								decoding="async"
+							/>
+							<figcaption class="muted cap">Caja: revisás y cerrás la orden con ticket visible.</figcaption>
+						</figure>
+						<figure class="device-frame device-frame-secondary">
+							<img
+								src={`${BASE}images/compay/elaborador-cola.png`}
+								alt="Vista del elaborador: órdenes en cola, en preparación y listas para entregar."
+								width="393"
+								height="852"
+								loading="eager"
+								decoding="async"
+							/>
+							<figcaption class="muted cap">Elaborador: la cocina trabaja por estados claros.</figcaption>
+						</figure>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="como-funciona" class="section">
+			<div class="container">
+				<div class="section-head">
+					<h2>Cómo funciona</h2>
+					<p class="muted">
+						Pensamos este flujo para la realidad de los negocios en Cuba — turnos cargados,
+						producción a presión y filas largas sin margen para errores en el llamado del pedido.
+					</p>
+				</div>
+
+				<div class="flow card">
+					<div class="flow-step">
+						<span class="flow-n">1</span>
+						<h3>Ticket</h3>
+						<p class="muted">Se crea una orden con número y nombre asociado a la compra.</p>
+					</div>
+					<div class="flow-step">
+						<span class="flow-n">2</span>
+						<h3>Estados</h3>
+						<p class="muted">La orden avanza por estados hasta estar lista para entregar.</p>
+					</div>
+					<div class="flow-step">
+						<span class="flow-n">3</span>
+						<h3>Producción</h3>
+						<p class="muted">El elaborador ve lo que toca preparar y lo marca como listo.</p>
+					</div>
+					<div class="flow-step">
+						<span class="flow-n">4</span>
+						<h3>Llamado</h3>
+						<p class="muted">La pantalla TV muestra números listos para retirar y el menú.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="apps" class="section">
+			<div class="container">
+				<div class="section-head">
+					<h2>Apps incluidas</h2>
+					<p class="muted">
+						Une el frente del local y la cocina con una experiencia de software profesional. Cada rol
+						tiene su propia app móvil, pensada desde el día cero como una solución de primera línea
+						para Cuba.
+					</p>
+				</div>
+
+				<div class="grid3">
+					<article class="card tile">
+						<h3>Mobile · Admin</h3>
+						<p class="muted">Gestión y control del local, configuración y métricas.</p>
+						<ul class="list">
+							<li>Usuarios y roles</li>
+							<li>Catálogo y precios</li>
+							<li>Visibilidad del flujo</li>
+						</ul>
+						<figure class="shot">
+							<img
+								src={`${BASE}images/compay/panel-control.png`}
+								alt="Panel de control del administrador: órdenes, equipos, productos y más."
+								loading="lazy"
+								decoding="async"
+								width="400"
+								height="800"
+							/>
+							<figcaption class="muted cap-cap">Admin: panel único para operar el local.</figcaption>
+						</figure>
+					</article>
+					<article class="card tile">
+						<h3>Mobile · Cashier</h3>
+						<p class="muted">Cobro y creación rápida de tickets para acelerar la fila.</p>
+						<ul class="list">
+							<li>Alta de orden en segundos</li>
+							<li>Nombre + número de ticket</li>
+							<li>Estado y seguimiento</li>
+						</ul>
+						<figure class="shot">
+							<img
+								src={`${BASE}images/compay/cajero-equipo.png`}
+								alt="Pantalla del cajero: equipo activo, accesos rápidos para nuevo pedido e historial."
+								loading="lazy"
+								decoding="async"
+								width="400"
+								height="800"
+							/>
+							<figcaption class="muted cap-cap">Caja: equipo en turno y acceso directo al pedido.</figcaption>
+						</figure>
+					</article>
+					<article class="card tile">
+						<h3>Mobile · Producer</h3>
+						<p class="muted">Preparación ordenada: lo que entra, lo que sigue y lo que ya está listo.</p>
+						<ul class="list">
+							<li>Cola de producción</li>
+							<li>Marcar listo / entregado</li>
+							<li>Prioridades y claridad</li>
+						</ul>
+						<figure class="shot">
+							<img
+								src={`${BASE}images/compay/elaborador-preparacion.png`}
+								alt="Panel del elaborador: pedidos en cola, en preparación y listos para entregar."
+								loading="lazy"
+								decoding="async"
+								width="400"
+								height="800"
+							/>
+							<figcaption class="muted cap-cap">
+								Kitchen-first: mover pedidos hasta “listo” sin vueltas.
+							</figcaption>
+						</figure>
+					</article>
+				</div>
+
+				<div class="tv card">
+					<div>
+						<h3>TV · Menú para clientes + llamados</h3>
+						<p class="muted">
+							La cartelera eleva cómo ves tu marca frente al público cubano que compara establecimientos —
+							el menú vive grande y los tickets listos se leen desde lejos sin gritar.
+						</p>
+						<div class="tv-badges">
+							<span class="chip">Menú de productos</span>
+							<span class="chip">Números listos</span>
+							<span class="chip">Ideal para mostrador</span>
+						</div>
+					</div>
+					<figure class="tv-shot">
+						<img
+							src={`${BASE}images/compay/tv-menu.png`}
+							alt="Pantalla TV: carta con precios y aviso de órdenes listas con número de ticket."
+							loading="lazy"
+							decoding="async"
+							width="1200"
+							height="675"
+						/>
+					</figure>
+				</div>
+			</div>
+		</section>
+
+		<section id="herramientas" class="section">
+			<div class="container">
+				<div class="section-head">
+					<h2>Herramientas de gestión que suman día a día</h2>
+					<p class="muted">
+						Administrá equipos y turnos, el catálogo, las ventas y avisos automáticos desde la misma
+						plataforma — el tipo de automatización visible que pocas herramientas locales en Cuba
+						ofrecen integrada de forma tan completa para gastronomía y venta con alta rotación.
+					</p>
+				</div>
+				<div class="tool-grid">
+					<article class="card tool-card">
+						<h3>Equipos y turnos</h3>
+						<p class="muted">Diurno, nocturno o los que necesites tu operación.</p>
+						<figure class="tool-shot">
+							<img
+								src={`${BASE}images/compay/equipos.png`}
+								alt="Listado de equipos de trabajo con opciones de editar o eliminar."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tool-card">
+						<h3>Catálogo y precios</h3>
+						<p class="muted">Lista de productos con categorías y disponibilidad.</p>
+						<figure class="tool-shot">
+							<img
+								src={`${BASE}images/compay/productos.png`}
+								alt="Pantalla de productos con imágenes, precios y categorías."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tool-card">
+						<h3>Alta rápida de producto</h3>
+						<p class="muted">Imagen, nombre, precio y categoría en un solo flujo.</p>
+						<figure class="tool-shot">
+							<img
+								src={`${BASE}images/compay/crear-producto.png`}
+								alt="Formulario para crear un producto con foto, descripción, precio y categoría."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tool-card">
+						<h3>Resumen del día</h3>
+						<p class="muted">Ventas por producto e ingreso total cuando lo necesitás.</p>
+						<figure class="tool-shot">
+							<img
+								src={`${BASE}images/compay/resumen.png`}
+								alt="Resumen de ingresos totales y unidades vendidas por producto."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tool-card">
+						<h3>Envío programado</h3>
+						<p class="muted">Receptores de estadísticas con horarios de envío.</p>
+						<figure class="tool-shot">
+							<img
+								src={`${BASE}images/compay/receptores-estadisticas.png`}
+								alt="Configuración de receptores para envío automático de estadísticas."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tool-card">
+						<h3>Acceso seguro</h3>
+						<p class="muted">PIN y selección de rol en el mismo dispositivo.</p>
+						<figure class="tool-shot">
+							<img
+								src={`${BASE}images/compay/login-pin.png`}
+								alt="Pantalla de acceso por PIN con selección de rol cajero, elaborador y admin."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="features" class="section">
+			<div class="container">
+				<div class="section-head">
+					<h2>Features que disparan resultado en territorio cubano</h2>
+					<p class="muted">
+						Funciones prácticas, no adornos: productividad donde más duele cuando el día se pone pesado —
+						caja rápida, cocina enfocada y una TV que marca la diferencia frente al cliente.
+					</p>
+				</div>
+
+				<div class="grid2">
+					<article class="card tile feat-tile">
+						<h3>Menos confusión en la entrega</h3>
+						<p class="muted">El cajero ve “listos” y marca entregado sin errores.</p>
+						<figure class="feat-shot">
+							<img
+								src={`${BASE}images/compay/cajero-entrega.png`}
+								alt="Lista de órdenes listas para entregar en pantalla del cajero."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tile feat-tile">
+						<h3>Velocidad en caja</h3>
+						<p class="muted">Totales claros antes de crear la orden y número de ticket a la vista.</p>
+						<figure class="feat-shot">
+							<img
+								src={`${BASE}images/compay/revision-orden.png`}
+								alt="Revisión de orden antes de crear: artículos, total y datos del cliente."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tile feat-tile">
+						<h3>Producción ordenada</h3>
+						<p class="muted">Cola, preparación y listo para retirar, en un solo lugar.</p>
+						<figure class="feat-shot">
+							<img
+								src={`${BASE}images/compay/elaborador-cola.png`}
+								alt="Vista del elaborador con pedidos organizados por estado."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+					<article class="card tile feat-tile">
+						<h3>Roles y seguridad</h3>
+						<p class="muted">Cajero, elaborador y admin con acceso rápido y controlado.</p>
+						<figure class="feat-shot">
+							<img
+								src={`${BASE}images/compay/login-pin.png`}
+								alt="Pantalla de PIN y selección de usuario por rol."
+								loading="lazy"
+								decoding="async"
+							/>
+						</figure>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<section id="planes" class="section">
+	<div class="container">
+		<div class="section-head">
+			<h2>Planes</h2>
+			<p class="muted">
+				Todos nuestros planes incluyen acceso total a todas las herramientas del sistema. Elige el tiempo de suscripción que mejor se adapte a la proyección de tu negocio en Cuba.
+			</p>
+		</div>
+
+		<div class="grid3">
+			<article class="card plan">
+				<h3>Mensual</h3>
+				<p class="muted">Ideal para probar el sistema y empezar a ordenar tu local hoy.</p>
+				<ul class="list">
+					<li>Sistema completo de tickets</li>
+					<li>Pantalla TV para llamados</li>
+					<li>Usuarios y roles ilimitados</li>
+					<li>Soporte continuo</li>
+				</ul>
+				<a class="btn btn-primary" href="#contacto">Consultar</a>
+			</article>
+			<article class="card plan featured">
+				<span class="chip">Más elegido</span>
+				<h3>Semestral</h3>
+				<p class="muted">Para negocios con alta demanda que buscan estabilidad a mediano plazo.</p>
+				<ul class="list">
+					<li>Sistema completo de tickets</li>
+					<li>Pantalla TV para llamados</li>
+					<li>Usuarios y roles ilimitados</li>
+					<li>Soporte continuo</li>
+				</ul>
+				<a class="btn btn-primary" href="#contacto">Pedir demo</a>
+			</article>
+			<article class="card plan">
+				<h3>Anual</h3>
+				<p class="muted">La opción más rentable para acompañar el crecimiento de tu negocio a largo plazo.</p>
+				<ul class="list">
+					<li>Sistema completo de tickets</li>
+					<li>Pantalla TV para llamados</li>
+					<li>Usuarios y roles ilimitados</li>
+					<li>Soporte continuo</li>
+				</ul>
+				<a class="btn btn-primary" href="#contacto">Hablemos</a>
+			</article>
+		</div>
+	</div>
+</section>
+
+		<section id="contacto" class="section">
+  <div class="container">
+    <div class="contact card">
+      <div>
+        <h2>¿Listo para llevar primera línea a tu negocio en Cuba?</h2>
+        <p class="muted">
+          Si dirigís cafeterías, bares gastronómicos, pizzerías o cualquier local con cocina visible
+          y alta demanda en Cuba, hablemos. Contáctanos por el canal que te resulte más cómodo:
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="mailto:janderdeveloper@gmail.com?subject=Quiero%20una%20demo%20de%20ComPay">
+            Escribir por email
+          </a>
+          <a class="btn" href="https://wa.me/5355633131" target="_blank" rel="noopener noreferrer">
+            WhatsApp
+          </a>
+          <a class="btn" href="https://t.me/+5355633131" target="_blank" rel="noopener noreferrer">
+            Telegram
+          </a>
+          <a class="btn" href="tel:+5355633131">
+            Llamar
+          </a>
+          <a class="btn" href="#faq">
+            Ver preguntas frecuentes
+          </a>
+        </div>
+      </div>
+      <div class="contact-mini">
+        <div class="mini card">
+          <p class="mini-k">Mercado objetivo</p>
+          <p class="muted">Negocios cubanos · Cafeterías · Pizzerías · Heladerías · Locales rápidos</p>
+        </div>
+        <div class="mini card">
+          <p class="mini-k">Diferencial</p>
+          <p class="muted">Sistema de alto impacto y referente en Cuba en cómo ordenás tickets</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+		<section id="faq" class="section">
+			<div class="container">
+				<div class="section-head">
+					<h2>FAQ</h2>
+					<p class="muted">Respuestas rápidas para decidir más fácil.</p>
+				</div>
+
+				<div class="grid2">
+					<details class="card faq">
+						<summary>¿Para qué país y tipo de negocio está principalmente destinado?</summary>
+						<p class="muted">
+							<strong>Primero Cuba.</strong> ComPay existe para dueños de negocios gastronómicos y de
+							venta con tickets en Cuba que quieren nivel internacional sin fricciones: software
+							moderno, efecto alto en sala y pantalla cara al público — un nivel de integralidad que
+							todavía es raro dentro del mismo segmento en Cuba.
+						</p>
+					</details>
+					<details class="card faq">
+						<summary>¿Por qué decís que es de “primera línea” dentro de Cuba?</summary>
+						<p class="muted">
+							Por integración todo-en-uno: apps por rol para móvil, visión desde la cocina, menú dinámico y
+							llamado en TV programado, estadísticas y automatización típica de soluciones globales —
+							arquitecturado y presentado como un producto <strong>profesional</strong>, no como un MVP
+							aislado. En el contexto cubano pocos paquetes ofrecen ese combo con la misma coherencia.
+						</p>
+					</details>
+					<details class="card faq">
+						<summary>¿ComPay sirve para cualquier local con tickets?</summary>
+						<p class="muted">
+							Sí, siempre que haya orden a preparar y entregar por número o nombre — cafetería, pizzería,
+							hamburguesería, etc. Fuera del foco Cuba, igualmente aplicable donde operes.
+						</p>
+					</details>
+					<details class="card faq">
+						<summary>¿Qué ve el cliente?</summary>
+						<p class="muted">
+							En la TV puede ver el menú de productos y los números de ticket listos para retirar.
+						</p>
+					</details>
+					<details class="card faq">
+						<summary>¿Qué roles incluye la app mobile?</summary>
+						<p class="muted">Admin, cashier (caja) y producer (elaborador), cada uno con UI distinta.</p>
+					</details>
+					<details class="card faq">
+						<summary>¿Podemos agregar features a medida?</summary>
+						<p class="muted">
+							Sí. La web queda lista para mostrar features actuales y también para ir sumando nuevas
+							según tu roadmap.
+						</p>
+					</details>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer-inner">
+			<p class="muted">
+				© {year} ComPay — software profesional de órdenes con foco en negocios cubanos · de primera línea en su tipo
+				en Cuba
+			</p>
+			<div class="footer-links">
+				<a class="muted" href="#inicio">Volver arriba</a>
+				<a class="muted" href="mailto:hola@compay.app">hola@compay.app</a>
+			</div>
+		</div>
+	</footer>
+</div>
+
+<style>
+	.page {
+		min-height: 100vh;
+	}
+
+	.topbar {
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		backdrop-filter: blur(14px);
+		background: rgba(7, 10, 18, 0.55);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.topbar-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: 14px 0;
+		gap: 16px;
+	}
+
+	.brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		text-decoration: none;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+
+	.brand-mark {
+		width: 14px;
+		height: 14px;
+		border-radius: 6px;
+		background: linear-gradient(135deg, rgba(124, 58, 237, 1), rgba(34, 197, 94, 0.95));
+		box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.12);
+	}
+
+	.brand-name {
+		font-size: 16px;
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+	}
+
+	.nav a {
+		text-decoration: none;
+		color: rgba(255, 255, 255, 0.82);
+		font-weight: 600;
+		font-size: 13px;
+		padding: 10px 10px;
+		border-radius: 10px;
+	}
+
+	.nav a:hover {
+		background: rgba(255, 255, 255, 0.06);
+	}
+
+	.nav-cta {
+		display: flex;
+		gap: 10px;
+		align-items: center;
+	}
+
+	.hero {
+		padding: 56px 0 22px;
+	}
+
+	.hero-inner {
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 22px;
+		align-items: start;
+	}
+
+	h1 {
+		font-size: 44px;
+		line-height: 1.05;
+		letter-spacing: -0.03em;
+		margin: 16px 0 12px;
+	}
+
+	.grad {
+		background: linear-gradient(90deg, rgba(96, 165, 250, 0.95), rgba(34, 197, 94, 0.92));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
+
+	.lead {
+		font-size: 16px;
+		line-height: 1.6;
+		max-width: 56ch;
+		margin-top: 12px;
+	}
+
+	.hero-subhead {
+		font-size: 17px;
+		line-height: 1.55;
+		max-width: 62ch;
+		margin: 0;
+		color: rgba(255, 255, 255, 0.9);
+	}
+
+	.hero-subhead strong {
+		color: rgba(255, 255, 255, 1);
+	}
+
+	.hero-cta {
+		display: flex;
+		gap: 12px;
+		margin-top: 18px;
+		flex-wrap: wrap;
+	}
+
+	.trust {
+		margin-top: 18px;
+		display: flex;
+		gap: 14px;
+		flex-wrap: wrap;
+	}
+
+	.trust-item {
+		padding: 10px 12px;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.kpi {
+		font-weight: 800;
+		display: block;
+	}
+
+	.hero-visual {
+		padding: 14px;
+	}
+
+	.hero-devices {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 14px;
+		padding: 10px 4px 4px;
+		align-items: start;
+	}
+
+	.device-frame {
+		margin: 0;
+	}
+
+	.device-frame img {
+		width: 100%;
+		height: auto;
+		display: block;
+		border-radius: 22px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	.device-frame-secondary {
+		margin-top: 34px;
+	}
+
+	.cap {
+		margin: 10px 6px 0;
+		font-size: 12px;
+		line-height: 1.45;
+	}
+
+	.cap-cap {
+		margin: 10px 0 0;
+		font-size: 12px;
+		line-height: 1.45;
+	}
+
+	.mock-top {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 10px 12px;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+	}
+
+	.dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 99px;
+		background: rgba(255, 255, 255, 0.18);
+	}
+
+	.mock-title {
+		margin-left: 6px;
+		font-size: 12px;
+		color: rgba(255, 255, 255, 0.7);
+		font-weight: 600;
+	}
+
+	.mock-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12px;
+		padding: 14px 8px 6px;
+	}
+
+	.mock-col {
+		padding: 10px;
+		border-radius: 14px;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.09);
+	}
+
+	.mock-h {
+		margin: 0 0 10px;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+
+	.mock-item {
+		display: grid;
+		grid-template-columns: auto 1fr auto;
+		gap: 10px;
+		align-items: center;
+		padding: 10px;
+		border-radius: 12px;
+		background: rgba(0, 0, 0, 0.18);
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		margin-bottom: 10px;
+	}
+
+	.pill {
+		font-weight: 900;
+		color: rgba(255, 255, 255, 0.9);
+		background: rgba(124, 58, 237, 0.18);
+		border: 1px solid rgba(124, 58, 237, 0.25);
+		padding: 6px 10px;
+		border-radius: 999px;
+		font-size: 12px;
+	}
+
+	.name {
+		font-weight: 700;
+		font-size: 13px;
+		color: rgba(255, 255, 255, 0.86);
+	}
+
+	.state {
+		font-size: 12px;
+		font-weight: 800;
+		padding: 6px 10px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		color: rgba(255, 255, 255, 0.86);
+	}
+
+	.s-new {
+		background: rgba(96, 165, 250, 0.14);
+	}
+	.s-pay {
+		background: rgba(34, 197, 94, 0.14);
+	}
+	.s-send {
+		background: rgba(124, 58, 237, 0.14);
+	}
+	.s-prog {
+		background: rgba(251, 191, 36, 0.14);
+	}
+	.s-ready {
+		background: rgba(34, 197, 94, 0.14);
+	}
+	.s-done {
+		background: rgba(148, 163, 184, 0.14);
+	}
+
+	.mock-foot {
+		margin: 8px 8px 0;
+		font-size: 12px;
+	}
+
+	.section {
+		padding: 44px 0;
+	}
+
+	.section-head {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 10px;
+		margin-bottom: 18px;
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 26px;
+		letter-spacing: -0.02em;
+	}
+
+	h3 {
+		margin: 0 0 8px;
+		letter-spacing: -0.02em;
+	}
+
+	.flow {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 14px;
+		padding: 18px;
+	}
+
+	.flow-step {
+		padding: 14px;
+		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.04);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.flow-n {
+		width: 28px;
+		height: 28px;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 10px;
+		font-weight: 900;
+		background: rgba(96, 165, 250, 0.14);
+		border: 1px solid rgba(96, 165, 250, 0.18);
+		margin-bottom: 10px;
+	}
+
+	.grid3 {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 14px;
+	}
+
+	.grid2 {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 14px;
+	}
+
+	.tile {
+		padding: 18px;
+	}
+
+	.list {
+		margin: 12px 0 0;
+		padding-left: 18px;
+		color: rgba(255, 255, 255, 0.78);
+	}
+
+	.list li {
+		margin: 8px 0;
+	}
+
+	figure.shot {
+		margin: 14px 0 0;
+		padding: 0;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.2);
+		overflow: hidden;
+	}
+
+	.shot img {
+		width: 100%;
+		height: auto;
+		display: block;
+		max-height: 400px;
+		object-fit: cover;
+		object-position: top center;
+	}
+
+	.tv {
+		margin-top: 14px;
+		padding: 18px;
+		display: grid;
+		grid-template-columns: 1.2fr 0.8fr;
+		gap: 14px;
+		align-items: center;
+	}
+
+	figure.tv-shot {
+		margin: 0;
+		border-radius: 14px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: #05070d;
+		overflow: hidden;
+		align-self: stretch;
+		min-height: 200px;
+	}
+
+	.tv-shot img {
+		width: 100%;
+		height: auto;
+		display: block;
+		object-fit: contain;
+	}
+
+	.tv-badges {
+		margin-top: 10px;
+		display: flex;
+		gap: 10px;
+		flex-wrap: wrap;
+	}
+
+	.tool-grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 14px;
+	}
+
+	.tool-card {
+		padding: 16px;
+	}
+
+	.tool-shot {
+		margin: 12px 0 0;
+		border-radius: 14px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		background: rgba(255, 255, 255, 0.03);
+	}
+
+	.tool-shot img {
+		width: 100%;
+		display: block;
+		height: auto;
+		max-height: 300px;
+		object-fit: cover;
+		object-position: top center;
+	}
+
+	.feat-tile {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.feat-shot {
+		margin: 14px 0 0;
+		border-radius: 14px;
+		overflow: hidden;
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		background: rgba(0, 0, 0, 0.18);
+		flex: 1;
+		min-height: 0;
+	}
+
+	.feat-shot img {
+		width: 100%;
+		display: block;
+		height: auto;
+		max-height: 340px;
+		object-fit: cover;
+		object-position: top center;
+	}
+
+	.plan {
+		padding: 18px;
+		display: grid;
+		gap: 10px;
+	}
+
+	.plan.featured {
+		border-color: rgba(96, 165, 250, 0.28);
+		box-shadow: 0 26px 90px rgba(96, 165, 250, 0.08);
+	}
+
+	.contact {
+		padding: 22px;
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 14px;
+		align-items: start;
+	}
+
+	.contact-mini {
+		display: grid;
+		gap: 12px;
+	}
+
+	.mini {
+		padding: 14px;
+		border-radius: 16px;
+	}
+
+	.mini-k {
+		margin: 0 0 8px;
+		font-weight: 900;
+	}
+
+	.faq {
+		padding: 16px 18px;
+	}
+
+	.faq summary {
+		cursor: pointer;
+		font-weight: 800;
+	}
+
+	.faq p {
+		margin: 12px 0 0;
+	}
+
+	.footer {
+		padding: 28px 0 46px;
+	}
+
+	.footer-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+		flex-wrap: wrap;
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 12px;
+	}
+
+	@media (max-width: 980px) {
+		.nav {
+			display: none;
+		}
+		.hero-inner {
+			grid-template-columns: 1fr;
+		}
+		h1 {
+			font-size: 38px;
+		}
+		.hero-devices {
+			grid-template-columns: 1fr;
+		}
+		.device-frame-secondary {
+			margin-top: 0;
+		}
+		.flow {
+			grid-template-columns: 1fr 1fr;
+		}
+		.grid3 {
+			grid-template-columns: 1fr;
+		}
+		.grid2 {
+			grid-template-columns: 1fr;
+		}
+		.tv {
+			grid-template-columns: 1fr;
+		}
+		.tool-grid {
+			grid-template-columns: 1fr;
+		}
+		.contact {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

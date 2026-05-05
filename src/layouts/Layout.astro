@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>ComPay — Sistema profesional de órdenes para negocios en Cuba</title>
+		<meta
+			name="description"
+			content="ComPay es una plataforma profesional de alto impacto para gestionar órdenes con ticket, cocina por estados y pantalla TV para clientes. Está pensada principalmente para negocios cubanos y es una de las soluciones de primera línea en su tipo en Cuba."
+		/>
+		<meta name="theme-color" content="#0B1220" />
+
+		<meta property="og:title" content="ComPay — Sistema profesional de órdenes para negocios en Cuba" />
+		<meta
+			property="og:description"
+			content="Plataforma profesional de alto impacto para tickets, producción por estados y menú TV. Enfoque principal en negocios cubanos · de primera línea en su tipo en Cuba."
+		/>
+		<meta property="og:type" content="website" />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style>
+	:global(html, body) {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	:global(:root) {
+		--bg: #070a12;
+		--surface: rgba(255, 255, 255, 0.06);
+		--surface-2: rgba(255, 255, 255, 0.09);
+		--text: rgba(255, 255, 255, 0.92);
+		--muted: rgba(255, 255, 255, 0.7);
+		--border: rgba(255, 255, 255, 0.12);
+		--shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+		--brand: #7c3aed;
+		--brand-2: #22c55e;
+		--brand-3: #60a5fa;
+		--max: 1120px;
+	}
+
+	:global(body) {
+		font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+			'Apple Color Emoji', 'Segoe UI Emoji';
+		background:
+			radial-gradient(900px 500px at 12% 10%, rgba(124, 58, 237, 0.35), transparent 60%),
+			radial-gradient(900px 500px at 80% 18%, rgba(34, 197, 94, 0.22), transparent 55%),
+			radial-gradient(900px 500px at 50% 90%, rgba(96, 165, 250, 0.18), transparent 60%),
+			var(--bg);
+		color: var(--text);
+	}
+
+	:global(a) {
+		color: inherit;
+	}
+
+	:global(.container) {
+		max-width: var(--max);
+		margin: 0 auto;
+		padding: 0 20px;
+	}
+
+	:global(.card) {
+		background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
+		border: 1px solid var(--border);
+		border-radius: 18px;
+		box-shadow: var(--shadow);
+	}
+
+	:global(.chip) {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 12px;
+		border-radius: 999px;
+		background: rgba(255, 255, 255, 0.06);
+		border: 1px solid rgba(255, 255, 255, 0.12);
+		color: var(--muted);
+		font-size: 13px;
+	}
+
+	:global(.btn) {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		padding: 12px 16px;
+		border-radius: 12px;
+		border: 1px solid rgba(255, 255, 255, 0.14);
+		background: rgba(255, 255, 255, 0.06);
+		color: var(--text);
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	:global(.btn-primary) {
+		background: linear-gradient(90deg, rgba(124, 58, 237, 0.95), rgba(96, 165, 250, 0.9));
+		border: 1px solid rgba(255, 255, 255, 0.16);
+	}
+
+	:global(.btn-primary:hover) {
+		filter: brightness(1.05);
+	}
+
+	:global(.btn:hover) {
+		background: rgba(255, 255, 255, 0.09);
+	}
+
+	:global(.muted) {
+		color: var(--muted);
+	}
+</style>
