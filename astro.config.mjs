@@ -4,6 +4,6 @@ export default defineConfig({
 
   site: 'https://DevJ-Software.github.io',
 
-  base: '/promotion_compay_web',
+  base: '/promotion_compay_web/',
 
 });
