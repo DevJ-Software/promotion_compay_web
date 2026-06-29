@@ -4,561 +4,701 @@ const BASE = import.meta.env.BASE_URL;
 ---
 
 <div class="page">
+	<!-- NAVBAR -->
 	<header class="topbar">
 		<div class="container topbar-inner">
 			<a class="brand" href="#inicio" aria-label="ComPay">
 				<span class="brand-mark" aria-hidden="true"></span>
 				<span class="brand-name">ComPay</span>
 			</a>
-			<nav class="nav" aria-label="Navegación">
-				<a href="#como-funciona">Cómo funciona</a>
+			<nav class="nav" aria-label="Navegación principal">
 				<a href="#apps">Apps</a>
-				<a href="#herramientas">Gestión</a>
 				<a href="#features">Features</a>
-				<a href="#planes">Planes</a>
+				<a href="#como-funciona">Cómo funciona</a>
+				<a href="#planes">Precios</a>
 				<a href="#faq">FAQ</a>
 			</nav>
 			<div class="nav-cta">
-				<a class="btn" href="#contacto">Ver demo</a>
-				<a class="btn btn-primary" href="#contacto">Quiero ComPay</a>
+				<a class="btn" href="#faq">Ver FAQ</a>
+				<a class="btn btn-primary" href="#contacto">Solicitar demo</a>
 			</div>
 		</div>
 	</header>
 
 	<main id="inicio">
+
+		<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
 		<section class="hero">
 			<div class="container hero-inner">
 				<div class="hero-copy">
-					<span class="chip"
-						>Enfoque principal: negocios en Cuba • Tickets • Cocina por estados • Menú TV + llamados</span
-					>
-					<h1>
-						Software profesional de alto impacto para tickets y cocina —
-						<span class="grad">de primera línea en su tipo en Cuba.</span>
-					</h1>
-					<p class="hero-subhead">
-						<strong>Principalmente pensado para negocios cubanos</strong>: cafeterías, pizzerías y locales
-						con alta rotación. ComPay lleva tus órdenes del mostrador al cliente con claridad visual y
-						un equipo que trabaja sin perder tiempo.
-					</p>
-					<p class="muted lead">
-						Plataforma de gestión profesional para crear tickets con número y nombre, mover pedidos por
-						estados y mostrar llamados en TV: menos confusión, más fluidez y una presencia tecnológica
-						de nivel alto frente al público.
+					<div class="hero-badge">
+						<span class="badge-pulse"></span>
+						Sistema de punto de venta · 100% offline · Red local
+					</div>
+					<h1>El sistema que trabaja<br><span class="grad">mientras tú vendes.</span></h1>
+					<p class="hero-sub">
+						ComPay unifica caja, catálogo y menú en TV en un solo sistema. El cliente ve los productos
+						y precios en pantalla sin preguntar, el cajero no hace cuentas a mano y el admin
+						ve las analíticas del día desde el móvil.
 					</p>
 					<div class="hero-cta">
 						<a class="btn btn-primary" href="#contacto">Solicitar demo</a>
-						<a class="btn" href="#como-funciona">Ver cómo funciona</a>
+						<a class="btn" href="#apps">Ver las apps ↓</a>
 					</div>
-					<div class="trust">
-						<div class="trust-item">
-							<span class="kpi">Cuba-first</span>
-							<span class="muted">Producto enfocado principalmente en el mercado cubano</span>
+					<div class="hero-metrics">
+						<div class="metric">
+							<span class="metric-n">3</span>
+							<span class="metric-l muted">Apps integradas</span>
 						</div>
-						<div class="trust-item">
-							<span class="kpi">Alto impacto</span>
-							<span class="muted">Operación cara al cliente • cocina ordenada • TV que vende</span>
+						<div class="metric-sep"></div>
+						<div class="metric">
+							<span class="metric-n">&lt;1s</span>
+							<span class="metric-l muted">Tiempo real</span>
 						</div>
-						<div class="trust-item">
-							<span class="kpi">1ª línea</span>
-							<span class="muted">Entre las soluciones más completas de esta categoría en Cuba</span>
+						<div class="metric-sep"></div>
+						<div class="metric">
+							<span class="metric-n">15+</span>
+							<span class="metric-l muted">Módulos incluidos</span>
 						</div>
 					</div>
 				</div>
 
-				<div class="hero-visual card" aria-label="Capturas reales de ComPay">
-					<div class="mock-top">
-						<span class="dot"></span><span class="dot"></span><span class="dot"></span>
-						<span class="mock-title">ComPay Flow · app móvil</span>
-					</div>
-					<div class="hero-devices">
-						<figure class="device-frame">
+				<div class="hero-screens" aria-label="Capturas reales de ComPay">
+					<figure class="screen-main card">
+						<div class="screen-bar">
+							<span class="dot"></span><span class="dot"></span><span class="dot"></span>
+							<span class="screen-label">ComPay POS · Admin</span>
+						</div>
+						<img
+							src={`${BASE}images/compay/panel-control.png`}
+							alt="Panel de administración de ComPay: menú, equipos, productos y accesos rápidos."
+							width="400"
+							height="800"
+							loading="eager"
+							decoding="async"
+						/>
+					</figure>
+					<div class="screen-col">
+						<figure class="screen-sm card">
 							<img
 								src={`${BASE}images/compay/revision-orden.png`}
-								alt="Pantalla de revisión de orden en caja: ticket con ítems, total y crear orden."
+								alt="Revisión de orden: ítems, total y crear ticket."
 								width="393"
 								height="852"
 								loading="eager"
 								decoding="async"
 							/>
-							<figcaption class="muted cap">Caja: revisás y cerrás la orden con ticket visible.</figcaption>
+							<figcaption class="muted cap">Caja: orden revisada antes de confirmar.</figcaption>
 						</figure>
-						<figure class="device-frame device-frame-secondary">
+						<figure class="screen-sm card screen-tv-hero">
 							<img
-								src={`${BASE}images/compay/elaborador-cola.png`}
-								alt="Vista del elaborador: órdenes en cola, en preparación y listas para entregar."
-								width="393"
-								height="852"
+								src={`${BASE}images/compay/tv-menu.png`}
+								alt="Pantalla TV con menú y tickets listos para retirar."
+								width="1200"
+								height="675"
 								loading="eager"
 								decoding="async"
 							/>
-							<figcaption class="muted cap">Elaborador: la cocina trabaja por estados claros.</figcaption>
+							<figcaption class="muted cap">TV: menú + llamado de número automático.</figcaption>
 						</figure>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section id="como-funciona" class="section">
+		<!-- ═══════════════════════════════ PROBLEMA ═══════════════════════════════ -->
+		<section id="problema" class="section">
 			<div class="container">
 				<div class="section-head">
-					<h2>Cómo funciona</h2>
-					<p class="muted">
-						Pensamos este flujo para la realidad de los negocios en Cuba — turnos cargados,
-						producción a presión y filas largas sin margen para errores en el llamado del pedido.
-					</p>
+					<span class="section-label">El problema</span>
+					<h2>Lo que le cuesta dinero a tu negocio cada día</h2>
+					<p class="muted">Tres puntos de dolor que ComPay elimina desde el primer día.</p>
 				</div>
+				<div class="problems">
+					<article class="card problem">
+						<div class="problem-top">
+							<div class="prob-ico">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+							</div>
+							<h3>Pedidos en papel o apps que no se hablan</h3>
+						</div>
+						<p class="muted">La caja anota, la cocina no sabe qué sigue, el cliente espera sin información. Errores de pedido y tiempo perdido.</p>
+						<div class="prob-sol">
+							<span class="sol-tag">ComPay resuelve esto:</span>
+							<span class="muted">Caja, cocina y TV sincronizados en tiempo real por red local — sin internet.</span>
+						</div>
+					</article>
 
-				<div class="flow card">
-					<div class="flow-step">
-						<span class="flow-n">1</span>
-						<h3>Ticket</h3>
-						<p class="muted">Se crea una orden con número y nombre asociado a la compra.</p>
-					</div>
-					<div class="flow-step">
-						<span class="flow-n">2</span>
-						<h3>Estados</h3>
-						<p class="muted">La orden avanza por estados hasta estar lista para entregar.</p>
-					</div>
-					<div class="flow-step">
-						<span class="flow-n">3</span>
-						<h3>Producción</h3>
-						<p class="muted">El elaborador ve lo que toca preparar y lo marca como listo.</p>
-					</div>
-					<div class="flow-step">
-						<span class="flow-n">4</span>
-						<h3>Llamado</h3>
-						<p class="muted">La pantalla TV muestra números listos para retirar y el menú.</p>
-					</div>
+					<article class="card problem">
+						<div class="problem-top">
+							<div class="prob-ico">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+							</div>
+							<h3>Sin datos reales de ventas ni control de inventario</h3>
+						</div>
+						<p class="muted">El cierre de caja a mano tiene errores. El stock se lleva de memoria. No sabes qué producto te deja más dinero.</p>
+						<div class="prob-sol">
+							<span class="sol-tag">ComPay resuelve esto:</span>
+							<span class="muted">Dashboard analítico con KPIs, historial y control IPV de mermas por turno.</span>
+						</div>
+					</article>
+
+					<article class="card problem">
+						<div class="problem-top">
+							<div class="prob-ico">
+								<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+							</div>
+							<h3>El cliente pregunta, el cajero calcula y el local pierde velocidad</h3>
+						</div>
+						<p class="muted">Sin catálogo visible el cliente pregunta qué hay y a cuánto. El cajero suma a mano, comete errores y la fila crece.</p>
+						<div class="prob-sol">
+							<span class="sol-tag">ComPay resuelve esto:</span>
+							<span class="muted">Catálogo en TV con precios. El cliente decide solo y el sistema calcula el total automáticamente.</span>
+						</div>
+					</article>
 				</div>
 			</div>
 		</section>
 
+		<!-- ═══════════════════════════════ 3 APPS ═══════════════════════════════ -->
 		<section id="apps" class="section">
 			<div class="container">
 				<div class="section-head">
-					<h2>Apps incluidas</h2>
-					<p class="muted">
-						Une el frente del local y la cocina con una experiencia de software profesional. Cada rol
-						tiene su propia app móvil, pensada desde el día cero como una solución de primera línea
-						para Cuba.
-					</p>
+					<span class="section-label">El ecosistema</span>
+					<h2>3 apps que trabajan como una sola</h2>
+					<p class="muted">Cada rol tiene su pantalla optimizada. Todo sincronizado, sin configurar nada extra.</p>
 				</div>
 
-				<div class="grid3">
-					<article class="card tile">
-						<h3>Mobile · Admin</h3>
-						<p class="muted">Gestión y control del local, configuración y métricas.</p>
-						<ul class="list">
-							<li>Usuarios y roles</li>
-							<li>Catálogo y precios</li>
-							<li>Visibilidad del flujo</li>
-						</ul>
-						<figure class="shot">
-							<img
-								src={`${BASE}images/compay/panel-control.png`}
-								alt="Panel de control del administrador: órdenes, equipos, productos y más."
-								loading="lazy"
-								decoding="async"
-								width="400"
-								height="800"
-							/>
-							<figcaption class="muted cap-cap">Admin: panel único para operar el local.</figcaption>
-						</figure>
-					</article>
-					<article class="card tile">
-						<h3>Mobile · Cashier</h3>
-						<p class="muted">Cobro y creación rápida de tickets para acelerar la fila.</p>
-						<ul class="list">
-							<li>Alta de orden en segundos</li>
-							<li>Nombre + número de ticket</li>
-							<li>Estado y seguimiento</li>
-						</ul>
-						<figure class="shot">
-							<img
-								src={`${BASE}images/compay/cajero-equipo.png`}
-								alt="Pantalla del cajero: equipo activo, accesos rápidos para nuevo pedido e historial."
-								loading="lazy"
-								decoding="async"
-								width="400"
-								height="800"
-							/>
-							<figcaption class="muted cap-cap">Caja: equipo en turno y acceso directo al pedido.</figcaption>
-						</figure>
-					</article>
-					<article class="card tile">
-						<h3>Mobile · Producer</h3>
-						<p class="muted">Preparación ordenada: lo que entra, lo que sigue y lo que ya está listo.</p>
-						<ul class="list">
-							<li>Cola de producción</li>
-							<li>Marcar listo / entregado</li>
-							<li>Prioridades y claridad</li>
-						</ul>
-						<figure class="shot">
-							<img
-								src={`${BASE}images/compay/elaborador-preparacion.png`}
-								alt="Panel del elaborador: pedidos en cola, en preparación y listos para entregar."
-								loading="lazy"
-								decoding="async"
-								width="400"
-								height="800"
-							/>
-							<figcaption class="muted cap-cap">
-								Kitchen-first: mover pedidos hasta “listo” sin vueltas.
-							</figcaption>
-						</figure>
-					</article>
-				</div>
-
-				<div class="tv card">
-					<div>
-						<h3>TV · Menú para clientes + llamados</h3>
-						<p class="muted">
-							La cartelera eleva cómo ves tu marca frente al público cubano que compara establecimientos —
-							el menú vive grande y los tickets listos se leen desde lejos sin gritar.
-						</p>
-						<div class="tv-badges">
-							<span class="chip">Menú de productos</span>
-							<span class="chip">Números listos</span>
-							<span class="chip">Ideal para mostrador</span>
+				<div class="apps-grid">
+					<!-- POS -->
+					<article class="card app-card">
+						<div class="app-header">
+							<span class="app-tag pos-tag">POS Móvil</span>
+							<div class="app-platforms">
+								<span class="chip">Android</span>
+								<span class="chip">iOS</span>
+							</div>
 						</div>
-					</div>
-					<figure class="tv-shot">
+						<h3>ComPay POS</h3>
+						<p class="muted">La app para tu equipo. Tres roles en una sola app: Admin, Cajero y Cocinero. Cada uno ve lo que necesita y nada más.</p>
+						<ul class="app-list">
+							<li>Caja rápida en 2 pasos con escaneo QR</li>
+							<li>Cocina con estados: cola → preparando → listo</li>
+							<li>Dashboard con KPIs y gráfica de tendencia</li>
+							<li>Control IPV de inventario por turno</li>
+							<li>Impresión de tickets Bluetooth / WiFi</li>
+						</ul>
+						<div class="app-shots">
+							<figure>
+								<img src={`${BASE}images/compay/revision-orden.png`} alt="Revisión de orden en caja" loading="lazy" decoding="async"/>
+							</figure>
+							<figure>
+								<img src={`${BASE}images/compay/elaborador-cola.png`} alt="Cola de cocina" loading="lazy" decoding="async"/>
+							</figure>
+							<figure>
+								<img src={`${BASE}images/compay/panel-control.png`} alt="Panel admin" loading="lazy" decoding="async"/>
+							</figure>
+						</div>
+					</article>
+
+					<!-- TV -->
+					<article class="card app-card">
+						<div class="app-header">
+							<span class="app-tag tv-tag">Menú TV</span>
+							<div class="app-platforms">
+								<span class="chip">Android TV</span>
+								<span class="chip">Fire TV</span>
+							</div>
+						</div>
+						<h3>ComPay TV</h3>
+						<p class="muted">Pantalla profesional para el local. Menú digital por categorías y llamados automáticos cuando el pedido está listo.</p>
+						<ul class="app-list">
+							<li>Menú organizado por categorías</li>
+							<li>Tickets completados en pantalla lateral</li>
+							<li>Alerta sonora automática al completar</li>
+							<li>Control remoto — sin tocar la pantalla</li>
+							<li>Solo muestra productos disponibles</li>
+						</ul>
+						<div class="app-shots app-shots-wide">
+							<figure>
+								<img src={`${BASE}images/compay/tv-menu.png`} alt="Pantalla TV con menú y pedidos" loading="lazy" decoding="async"/>
+							</figure>
+						</div>
+					</article>
+
+					<!-- ADMIN -->
+					<article class="card app-card">
+						<div class="app-header">
+							<span class="app-tag admin-tag">Analytics</span>
+							<div class="app-platforms">
+								<span class="chip">Incluido en POS</span>
+							</div>
+						</div>
+						<h3>Panel Admin</h3>
+						<p class="muted">Control total del negocio desde el móvil. Catálogo, equipos, ventas, inventario y reportes automáticos.</p>
+						<ul class="app-list">
+							<li>Gráfica de ingresos hora a hora o día a día</li>
+							<li>Top productos con barra proporcional</li>
+							<li>Ranking de ingresos por equipo</li>
+							<li>Alerta de stock bajo en banner destacado</li>
+							<li>Envío de reporte de ventas por SMS</li>
+						</ul>
+						<div class="app-shots">
+							<figure>
+								<img src={`${BASE}images/compay/resumen.png`} alt="Resumen de ventas" loading="lazy" decoding="async"/>
+							</figure>
+							<figure>
+								<img src={`${BASE}images/compay/receptores-estadisticas.png`} alt="Receptores de estadísticas" loading="lazy" decoding="async"/>
+							</figure>
+						</div>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════ FEATURES GRID ═══════════════════════════════ -->
+		<section id="features" class="section">
+			<div class="container">
+				<div class="section-head">
+					<span class="section-label">Features</span>
+					<h2>Todo lo que necesita tu negocio, incluido</h2>
+					<p class="muted">Sin integraciones de terceros. Sin add-ons. Una sola plataforma que cubre todas las capas de tu operación.</p>
+				</div>
+				<div class="feat-grid">
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+						</div>
+						<h4>Tiempo real</h4>
+						<p class="muted">Pedidos en cocina en menos de 1 segundo. WebSocket nativo en todas las apps.</p>
+					</article>
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+						</div>
+						<h4>Multi-rol</h4>
+						<p class="muted">Admin, Cajero y Cocinero con pantallas y permisos distintos en una sola app.</p>
+					</article>
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+						</div>
+						<h4>Dashboard analítico</h4>
+						<p class="muted">KPIs comparativos con periodo anterior, tendencia horaria y top productos.</p>
+					</article>
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+						</div>
+						<h4>Control IPV</h4>
+						<p class="muted">Apertura y cierre de turno. Consumo teórico vs real. Costo de merma calculado automáticamente.</p>
+					</article>
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h.01M14 17h.01M17 14h.01M17 17h.01M20 14h.01M20 17h.01"/></svg>
+						</div>
+						<h4>Menú QR</h4>
+						<p class="muted">Clientes escanean, seleccionan y envían su pedido. El cajero lo confirma en un toque.</p>
+					</article>
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+						</div>
+						<h4>Impresión térmica</h4>
+						<p class="muted">Conecta tu impresora Bluetooth o WiFi. Tickets impresos directamente desde el móvil.</p>
+					</article>
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+						</div>
+						<h4>Reportes por SMS</h4>
+						<p class="muted">Resumen de ventas enviado automáticamente a los receptores que configures.</p>
+					</article>
+					<article class="card feat-card">
+						<div class="feat-ico">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+						</div>
+						<h4>Licencias por dispositivo</h4>
+						<p class="muted">Acceso atado al hardware (HWID). Periodos de 1 mes hasta 3 años. Renovable en cualquier momento.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════ DASHBOARD HIGHLIGHT ═══════════════════════════════ -->
+		<section class="section section-dash">
+			<div class="container dash-inner">
+				<div class="dash-copy">
+					<span class="section-label">Analytics</span>
+					<h2>Sabe exactamente cómo va tu negocio, en todo momento</h2>
+					<p class="muted">El dashboard muestra ingresos comparados con el periodo anterior, tendencia hora por hora, top productos y alerta automática si el stock de un ingrediente está bajo.</p>
+					<ul class="check-list">
+						<li><span class="chk">✓</span> Comparativa % con periodo anterior</li>
+						<li><span class="chk">✓</span> Gráfica de tendencia horaria o diaria</li>
+						<li><span class="chk">✓</span> Top productos rankeados con barra proporcional</li>
+						<li><span class="chk">✓</span> Ranking de ingresos por equipo</li>
+						<li><span class="chk">✓</span> Envío de resumen por SMS con un toque</li>
+					</ul>
+					<a class="btn btn-primary" href="#contacto">Ver demo en vivo</a>
+				</div>
+				<div class="dash-screens">
+					<figure class="card dash-shot">
 						<img
-							src={`${BASE}images/compay/tv-menu.png`}
-							alt="Pantalla TV: carta con precios y aviso de órdenes listas con número de ticket."
+							src={`${BASE}images/compay/resumen.png`}
+							alt="Dashboard: resumen de ingresos y top productos."
 							loading="lazy"
 							decoding="async"
-							width="1200"
-							height="675"
+							width="400"
+							height="800"
+						/>
+					</figure>
+					<figure class="card dash-shot-2">
+						<img
+							src={`${BASE}images/compay/receptores-estadisticas.png`}
+							alt="Configuración de receptores para reportes SMS."
+							loading="lazy"
+							decoding="async"
+							width="400"
+							height="800"
 						/>
 					</figure>
 				</div>
 			</div>
 		</section>
 
-		<section id="herramientas" class="section">
+		<!-- ═══════════════════════════════ CÓMO FUNCIONA ═══════════════════════════════ -->
+		<section id="como-funciona" class="section">
 			<div class="container">
 				<div class="section-head">
-					<h2>Herramientas de gestión que suman día a día</h2>
-					<p class="muted">
-						Administrá equipos y turnos, el catálogo, las ventas y avisos automáticos desde la misma
-						plataforma — el tipo de automatización visible que pocas herramientas locales en Cuba
-						ofrecen integrada de forma tan completa para gastronomía y venta con alta rotación.
-					</p>
+					<span class="section-label">El flujo</span>
+					<h2>Del pedido a la entrega — sin fricción</h2>
+					<p class="muted">Cuatro pasos que pasan en segundos. Tu equipo trabaja sin confusión desde el primer turno.</p>
 				</div>
-				<div class="tool-grid">
-					<article class="card tool-card">
-						<h3>Equipos y turnos</h3>
-						<p class="muted">Diurno, nocturno o los que necesites tu operación.</p>
-						<figure class="tool-shot">
-							<img
-								src={`${BASE}images/compay/equipos.png`}
-								alt="Listado de equipos de trabajo con opciones de editar o eliminar."
-								loading="lazy"
-								decoding="async"
-							/>
+				<div class="flow">
+					<div class="flow-item">
+						<div class="flow-left">
+							<span class="flow-n">01</span>
+							<span class="flow-line"></span>
+						</div>
+						<div class="flow-body">
+							<h3>Caja crea el ticket</h3>
+							<p class="muted">El cajero elige productos, asigna nombre del cliente y confirma en 2 pasos. Ticket generado con número único. También puede recibir pedidos de clientes vía QR.</p>
+							<figure class="flow-shot card">
+								<img src={`${BASE}images/compay/cajero-equipo.png`} alt="Cajero: equipo y nuevo pedido" loading="lazy" decoding="async"/>
+							</figure>
+						</div>
+					</div>
+
+					<div class="flow-item">
+						<div class="flow-left">
+							<span class="flow-n">02</span>
+							<span class="flow-line"></span>
+						</div>
+						<div class="flow-body">
+							<h3>Cocina lo recibe al instante</h3>
+							<p class="muted">El cocinero ve el pedido en pantalla en menos de 1 segundo. Mueve la orden por estados: en cola → preparando → listo para retirar.</p>
+							<figure class="flow-shot card">
+								<img src={`${BASE}images/compay/elaborador-preparacion.png`} alt="Elaborador: pedidos en preparación" loading="lazy" decoding="async"/>
+							</figure>
+						</div>
+					</div>
+
+					<div class="flow-item">
+						<div class="flow-left">
+							<span class="flow-n">03</span>
+							<span class="flow-line"></span>
+						</div>
+						<div class="flow-body">
+							<h3>La TV avisa con número y sonido</h3>
+							<p class="muted">El número del ticket aparece en la pantalla grande con alerta sonora. El cliente sabe que puede retirar. Sin gritos. Sin confusión.</p>
+							<figure class="flow-shot card">
+								<img src={`${BASE}images/compay/tv-menu.png`} alt="TV: menú y ticket listo" loading="lazy" decoding="async"/>
+							</figure>
+						</div>
+					</div>
+
+					<div class="flow-item">
+						<div class="flow-left">
+							<span class="flow-n">04</span>
+						</div>
+						<div class="flow-body">
+							<h3>Cajero confirma la entrega</h3>
+							<p class="muted">El cajero ve la lista de pedidos listos y marca entregado. El turno cierra con registro completo y reportes disponibles para el admin.</p>
+							<figure class="flow-shot card">
+								<img src={`${BASE}images/compay/cajero-entrega.png`} alt="Cajero: pedidos listos para entregar" loading="lazy" decoding="async"/>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ═══════════════════════════════ GESTIÓN ═══════════════════════════════ -->
+		<section class="section">
+			<div class="container">
+				<div class="section-head">
+					<span class="section-label">Gestión</span>
+					<h2>Administra cada detalle desde el móvil</h2>
+					<p class="muted">El rol Admin tiene control total: catálogo, equipos, acceso seguro y más — sin depender de una computadora.</p>
+				</div>
+				<div class="mgmt-grid">
+					<article class="card mgmt-card">
+						<h4>Catálogo y precios</h4>
+						<p class="muted">Productos con imagen, precio, categoría y disponibilidad en tiempo real.</p>
+						<figure class="mgmt-shot">
+							<img src={`${BASE}images/compay/productos.png`} alt="Listado de productos con imagen y precios" loading="lazy" decoding="async"/>
 						</figure>
 					</article>
-					<article class="card tool-card">
-						<h3>Catálogo y precios</h3>
-						<p class="muted">Lista de productos con categorías y disponibilidad.</p>
-						<figure class="tool-shot">
-							<img
-								src={`${BASE}images/compay/productos.png`}
-								alt="Pantalla de productos con imágenes, precios y categorías."
-								loading="lazy"
-								decoding="async"
-							/>
+					<article class="card mgmt-card">
+						<h4>Alta rápida de producto</h4>
+						<p class="muted">Foto, nombre, precio y categoría en un solo flujo.</p>
+						<figure class="mgmt-shot">
+							<img src={`${BASE}images/compay/crear-producto.png`} alt="Formulario de nuevo producto" loading="lazy" decoding="async"/>
 						</figure>
 					</article>
-					<article class="card tool-card">
-						<h3>Alta rápida de producto</h3>
-						<p class="muted">Imagen, nombre, precio y categoría en un solo flujo.</p>
-						<figure class="tool-shot">
-							<img
-								src={`${BASE}images/compay/crear-producto.png`}
-								alt="Formulario para crear un producto con foto, descripción, precio y categoría."
-								loading="lazy"
-								decoding="async"
-							/>
+					<article class="card mgmt-card">
+						<h4>Equipos y turnos</h4>
+						<p class="muted">Agrupa a tu equipo en turnos. El rendimiento se mide por equipo.</p>
+						<figure class="mgmt-shot">
+							<img src={`${BASE}images/compay/equipos.png`} alt="Listado de equipos de trabajo" loading="lazy" decoding="async"/>
 						</figure>
 					</article>
-					<article class="card tool-card">
-						<h3>Resumen del día</h3>
-						<p class="muted">Ventas por producto e ingreso total cuando lo necesitás.</p>
-						<figure class="tool-shot">
-							<img
-								src={`${BASE}images/compay/resumen.png`}
-								alt="Resumen de ingresos totales y unidades vendidas por producto."
-								loading="lazy"
-								decoding="async"
-							/>
-						</figure>
-					</article>
-					<article class="card tool-card">
-						<h3>Envío programado</h3>
-						<p class="muted">Receptores de estadísticas con horarios de envío.</p>
-						<figure class="tool-shot">
-							<img
-								src={`${BASE}images/compay/receptores-estadisticas.png`}
-								alt="Configuración de receptores para envío automático de estadísticas."
-								loading="lazy"
-								decoding="async"
-							/>
-						</figure>
-					</article>
-					<article class="card tool-card">
-						<h3>Acceso seguro</h3>
-						<p class="muted">PIN y selección de rol en el mismo dispositivo.</p>
-						<figure class="tool-shot">
-							<img
-								src={`${BASE}images/compay/login-pin.png`}
-								alt="Pantalla de acceso por PIN con selección de rol cajero, elaborador y admin."
-								loading="lazy"
-								decoding="async"
-							/>
+					<article class="card mgmt-card">
+						<h4>Acceso por PIN y rol</h4>
+						<p class="muted">Cada empleado accede con su PIN. El rol define qué ve en pantalla.</p>
+						<figure class="mgmt-shot">
+							<img src={`${BASE}images/compay/login-pin.png`} alt="Login por PIN con selección de rol" loading="lazy" decoding="async"/>
 						</figure>
 					</article>
 				</div>
 			</div>
 		</section>
 
-		<section id="features" class="section">
+		<!-- ═══════════════════════════════ STACK ═══════════════════════════════ -->
+		<section class="section section-tech">
 			<div class="container">
 				<div class="section-head">
-					<h2>Features que disparan resultado en territorio cubano</h2>
-					<p class="muted">
-						Funciones prácticas, no adornos: productividad donde más duele cuando el día se pone pesado —
-						caja rápida, cocina enfocada y una TV que marca la diferencia frente al cliente.
-					</p>
+					<span class="section-label">Tecnología</span>
+					<h2>Construido con tecnología de nivel empresarial</h2>
+					<p class="muted">Sin atajos. Cada capa elegida para rendimiento, seguridad y escalabilidad real.</p>
 				</div>
-
-				<div class="grid2">
-					<article class="card tile feat-tile">
-						<h3>Menos confusión en la entrega</h3>
-						<p class="muted">El cajero ve “listos” y marca entregado sin errores.</p>
-						<figure class="feat-shot">
-							<img
-								src={`${BASE}images/compay/cajero-entrega.png`}
-								alt="Lista de órdenes listas para entregar en pantalla del cajero."
-								loading="lazy"
-								decoding="async"
-							/>
-						</figure>
-					</article>
-					<article class="card tile feat-tile">
-						<h3>Velocidad en caja</h3>
-						<p class="muted">Totales claros antes de crear la orden y número de ticket a la vista.</p>
-						<figure class="feat-shot">
-							<img
-								src={`${BASE}images/compay/revision-orden.png`}
-								alt="Revisión de orden antes de crear: artículos, total y datos del cliente."
-								loading="lazy"
-								decoding="async"
-							/>
-						</figure>
-					</article>
-					<article class="card tile feat-tile">
-						<h3>Producción ordenada</h3>
-						<p class="muted">Cola, preparación y listo para retirar, en un solo lugar.</p>
-						<figure class="feat-shot">
-							<img
-								src={`${BASE}images/compay/elaborador-cola.png`}
-								alt="Vista del elaborador con pedidos organizados por estado."
-								loading="lazy"
-								decoding="async"
-							/>
-						</figure>
-					</article>
-					<article class="card tile feat-tile">
-						<h3>Roles y seguridad</h3>
-						<p class="muted">Cajero, elaborador y admin con acceso rápido y controlado.</p>
-						<figure class="feat-shot">
-							<img
-								src={`${BASE}images/compay/login-pin.png`}
-								alt="Pantalla de PIN y selección de usuario por rol."
-								loading="lazy"
-								decoding="async"
-							/>
-						</figure>
-					</article>
+				<div class="tech-grid">
+					<div class="card tech-item">
+						<span class="tech-name">Flutter</span>
+						<span class="muted">Apps móvil y TV — Android, iOS, Android TV</span>
+					</div>
+					<div class="card tech-item">
+						<span class="tech-name">FastAPI</span>
+						<span class="muted">Backend Python async de alto rendimiento</span>
+					</div>
+					<div class="card tech-item">
+						<span class="tech-name">WebSockets</span>
+						<span class="muted">Sincronización en tiempo real en todas las apps</span>
+					</div>
+					<div class="card tech-item">
+						<span class="tech-name">JWT + HWID</span>
+						<span class="muted">Autenticación segura y licencias por dispositivo</span>
+					</div>
+					<div class="card tech-item">
+						<span class="tech-name">SQLAlchemy</span>
+						<span class="muted">Base de datos SQL con ORM tipado y trazabilidad</span>
+					</div>
+					<div class="card tech-item">
+						<span class="tech-name">Riverpod</span>
+						<span class="muted">Estado reactivo — la UI responde en tiempo real</span>
+					</div>
 				</div>
 			</div>
 		</section>
 
+		<!-- ═══════════════════════════════ PLANES ═══════════════════════════════ -->
 		<section id="planes" class="section">
-	<div class="container">
-		<div class="section-head">
-			<h2>Planes</h2>
-			<p class="muted">
-				Todos nuestros planes incluyen acceso total a todas las herramientas del sistema. Elige el tiempo de suscripción que mejor se adapte a la proyección de tu negocio en Cuba.
-			</p>
-		</div>
+			<div class="container">
+				<div class="section-head">
+					<span class="section-label">Precios</span>
+					<h2>Licencias flexibles para cada negocio</h2>
+					<p class="muted">Todas incluyen acceso completo al sistema. Elige el periodo que mejor se adapte a tu operación.</p>
+				</div>
+				<div class="plans-grid">
+					<article class="card plan">
+						<h3>1 mes</h3>
+						<p class="muted">Para empezar y validar sin compromiso.</p>
+						<ul class="plan-feat">
+							<li>Acceso completo al sistema</li>
+							<li>ComPay POS + TV incluidas</li>
+							<li>Soporte continuo</li>
+						</ul>
+						<a class="btn btn-primary" href="#contacto">Consultar precio</a>
+					</article>
+					<article class="card plan">
+						<h3>3 meses</h3>
+						<p class="muted">El equilibrio entre prueba y ahorro.</p>
+						<ul class="plan-feat">
+							<li>Acceso completo al sistema</li>
+							<li>ComPay POS + TV incluidas</li>
+							<li>Soporte continuo</li>
+						</ul>
+						<a class="btn btn-primary" href="#contacto">Consultar precio</a>
+					</article>
+					<article class="card plan plan-featured">
+						<span class="chip plan-chip">Más popular</span>
+						<h3>6 meses</h3>
+						<p class="muted">Estabilidad a mediano plazo para negocios activos.</p>
+						<ul class="plan-feat">
+							<li>Acceso completo al sistema</li>
+							<li>ComPay POS + TV incluidas</li>
+							<li>Soporte continuo</li>
+						</ul>
+						<a class="btn btn-primary" href="#contacto">Consultar precio</a>
+					</article>
+					<article class="card plan">
+						<h3>1 año</h3>
+						<p class="muted">Planificación clara y mejor valor por mes.</p>
+						<ul class="plan-feat">
+							<li>Acceso completo al sistema</li>
+							<li>ComPay POS + TV incluidas</li>
+							<li>Soporte continuo</li>
+						</ul>
+						<a class="btn btn-primary" href="#contacto">Consultar precio</a>
+					</article>
+					<article class="card plan">
+						<h3>2 años</h3>
+						<p class="muted">Para negocios consolidados que piensan a largo plazo.</p>
+						<ul class="plan-feat">
+							<li>Acceso completo al sistema</li>
+							<li>ComPay POS + TV incluidas</li>
+							<li>Soporte continuo</li>
+						</ul>
+						<a class="btn btn-primary" href="#contacto">Consultar precio</a>
+					</article>
+					<article class="card plan">
+						<h3>3 años</h3>
+						<p class="muted">El mejor valor posible. Máxima tranquilidad operativa.</p>
+						<ul class="plan-feat">
+							<li>Acceso completo al sistema</li>
+							<li>ComPay POS + TV incluidas</li>
+							<li>Soporte continuo</li>
+						</ul>
+						<a class="btn btn-primary" href="#contacto">Consultar precio</a>
+					</article>
+				</div>
+				<p class="plans-note muted">Licencias atadas al dispositivo (HWID). Precio coordinado por el canal de contacto.</p>
+			</div>
+		</section>
 
-		<div class="grid3">
-			<article class="card plan">
-				<h3>Mensual</h3>
-				<p class="muted">Ideal para probar el sistema y empezar a ordenar tu local hoy.</p>
-				<ul class="list">
-					<li>Sistema completo de tickets</li>
-					<li>Pantalla TV para llamados</li>
-					<li>Usuarios y roles ilimitados</li>
-					<li>Soporte continuo</li>
-				</ul>
-				<a class="btn btn-primary" href="#contacto">Consultar</a>
-			</article>
-			<article class="card plan featured">
-				<span class="chip">Más elegido</span>
-				<h3>Semestral</h3>
-				<p class="muted">Para negocios con alta demanda que buscan estabilidad a mediano plazo.</p>
-				<ul class="list">
-					<li>Sistema completo de tickets</li>
-					<li>Pantalla TV para llamados</li>
-					<li>Usuarios y roles ilimitados</li>
-					<li>Soporte continuo</li>
-				</ul>
-				<a class="btn btn-primary" href="#contacto">Pedir demo</a>
-			</article>
-			<article class="card plan">
-				<h3>Anual</h3>
-				<p class="muted">La opción más rentable para acompañar el crecimiento de tu negocio a largo plazo.</p>
-				<ul class="list">
-					<li>Sistema completo de tickets</li>
-					<li>Pantalla TV para llamados</li>
-					<li>Usuarios y roles ilimitados</li>
-					<li>Soporte continuo</li>
-				</ul>
-				<a class="btn btn-primary" href="#contacto">Hablemos</a>
-			</article>
-		</div>
-	</div>
-</section>
+		<!-- ═══════════════════════════════ CONTACTO CTA ═══════════════════════════════ -->
+		<section id="contacto" class="section section-cta">
+			<div class="container">
+				<div class="cta-box card">
+					<div class="cta-copy">
+						<h2>¿Listo para llevar tu negocio al siguiente nivel?</h2>
+						<p class="muted">Escríbenos por el canal que prefieras. Te mostramos el sistema funcionando en vivo, sin compromiso.</p>
+						<div class="cta-btns">
+							<a class="btn btn-primary" href="https://wa.me/5355633131" target="_blank" rel="noopener noreferrer">
+								<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+								WhatsApp
+							</a>
+							<a class="btn" href="mailto:janderdeveloper@gmail.com?subject=Quiero%20una%20demo%20de%20ComPay">Email</a>
+							<a class="btn" href="https://t.me/+5355633131" target="_blank" rel="noopener noreferrer">Telegram</a>
+							<a class="btn" href="tel:+5355633131">Llamar</a>
+						</div>
+					</div>
+					<div class="cta-stats">
+						<div class="cta-stat">
+							<span class="cta-n">3</span>
+							<span class="muted">Apps integradas</span>
+						</div>
+						<div class="cta-stat">
+							<span class="cta-n">15+</span>
+							<span class="muted">Módulos incluidos</span>
+						</div>
+						<div class="cta-stat">
+							<span class="cta-n">&lt;1s</span>
+							<span class="muted">Tiempo real</span>
+						</div>
+						<div class="cta-stat">
+							<span class="cta-n">6</span>
+							<span class="muted">Periodos de licencia</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-		<section id="contacto" class="section">
-  <div class="container">
-    <div class="contact card">
-      <div>
-        <h2>¿Listo para llevar primera línea a tu negocio en Cuba?</h2>
-        <p class="muted">
-          Si dirigís cafeterías, bares gastronómicos, pizzerías o cualquier local con cocina visible
-          y alta demanda en Cuba, hablemos. Contáctanos por el canal que te resulte más cómodo:
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="mailto:janderdeveloper@gmail.com?subject=Quiero%20una%20demo%20de%20ComPay">
-            Escribir por email
-          </a>
-          <a class="btn" href="https://wa.me/5355633131" target="_blank" rel="noopener noreferrer">
-            WhatsApp
-          </a>
-          <a class="btn" href="https://t.me/+5355633131" target="_blank" rel="noopener noreferrer">
-            Telegram
-          </a>
-          <a class="btn" href="tel:+5355633131">
-            Llamar
-          </a>
-          <a class="btn" href="#faq">
-            Ver preguntas frecuentes
-          </a>
-        </div>
-      </div>
-      <div class="contact-mini">
-        <div class="mini card">
-          <p class="mini-k">Mercado objetivo</p>
-          <p class="muted">Negocios cubanos · Cafeterías · Pizzerías · Heladerías · Locales rápidos</p>
-        </div>
-        <div class="mini card">
-          <p class="mini-k">Diferencial</p>
-          <p class="muted">Sistema de alto impacto y referente en Cuba en cómo ordenás tickets</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+		<!-- ═══════════════════════════════ FAQ ═══════════════════════════════ -->
 		<section id="faq" class="section">
 			<div class="container">
 				<div class="section-head">
-					<h2>FAQ</h2>
-					<p class="muted">Respuestas rápidas para decidir más fácil.</p>
+					<h2>Preguntas frecuentes</h2>
+					<p class="muted">Respuestas directas para decidir con seguridad.</p>
 				</div>
-
-				<div class="grid2">
-					<details class="card faq">
-						<summary>¿Para qué país y tipo de negocio está principalmente destinado?</summary>
-						<p class="muted">
-							<strong>Primero Cuba.</strong> ComPay existe para dueños de negocios gastronómicos y de
-							venta con tickets en Cuba que quieren nivel internacional sin fricciones: software
-							moderno, efecto alto en sala y pantalla cara al público — un nivel de integralidad que
-							todavía es raro dentro del mismo segmento en Cuba.
-						</p>
+				<div class="faq-grid">
+					<details class="card faq-item">
+						<summary>¿Para qué tipo de negocio es ComPay?</summary>
+						<p class="muted">El enfoque principal son negocios gastronómicos con alta rotación: restaurantes, cafeterías, pizzerías, hamburguserías, heladerías y food trucks. Pero ComPay también es completamente funcional para cualquier punto de venta con dependiente: ferreterías, tiendas de productos variados, confiterías y similares. El catálogo en TV elimina la pregunta constante de "¿qué tiene y a cuánto?", y el cajero nunca más tiene que hacer cálculos a mano.</p>
 					</details>
-					<details class="card faq">
-						<summary>¿Por qué decís que es de “primera línea” dentro de Cuba?</summary>
-						<p class="muted">
-							Por integración todo-en-uno: apps por rol para móvil, visión desde la cocina, menú dinámico y
-							llamado en TV programado, estadísticas y automatización típica de soluciones globales —
-							arquitecturado y presentado como un producto <strong>profesional</strong>, no como un MVP
-							aislado. En el contexto cubano pocos paquetes ofrecen ese combo con la misma coherencia.
-						</p>
+					<details class="card faq-item">
+						<summary>¿Necesito la pantalla TV para usar el sistema?</summary>
+						<p class="muted">No. El sistema funciona sin la TV usando solo el POS móvil. La TV es opcional pero muy recomendada: eleva la imagen del local y organiza la entrega de pedidos sin que nadie tenga que gritar el nombre del cliente.</p>
 					</details>
-					<details class="card faq">
-						<summary>¿ComPay sirve para cualquier local con tickets?</summary>
-						<p class="muted">
-							Sí, siempre que haya orden a preparar y entregar por número o nombre — cafetería, pizzería,
-							hamburguesería, etc. Fuera del foco Cuba, igualmente aplicable donde operes.
-						</p>
+					<details class="card faq-item">
+						<summary>¿Cómo funciona el control de inventario IPV?</summary>
+						<p class="muted">Al abrir el turno, el cocinero registra el stock inicial de ingredientes. El sistema descuenta el consumo teórico basado en recetas y pedidos. Al cerrar el turno, se hace conteo físico y el sistema calcula automáticamente la diferencia y el costo de merma o sobrante.</p>
 					</details>
-					<details class="card faq">
-						<summary>¿Qué ve el cliente?</summary>
-						<p class="muted">
-							En la TV puede ver el menú de productos y los números de ticket listos para retirar.
-						</p>
+					<details class="card faq-item">
+						<summary>¿Qué son las licencias por dispositivo (HWID)?</summary>
+						<p class="muted">Cada licencia está criptográficamente atada al hardware del dispositivo. Esto garantiza que solo tu equipo accede al sistema. Las licencias se activan por periodos desde 1 mes hasta 3 años y son renovables en cualquier momento.</p>
 					</details>
-					<details class="card faq">
-						<summary>¿Qué roles incluye la app mobile?</summary>
-						<p class="muted">Admin, cashier (caja) y producer (elaborador), cada uno con UI distinta.</p>
+					<details class="card faq-item">
+						<summary>¿Necesita internet?</summary>
+						<p class="muted">No. ComPay funciona 100% offline. Todo el sistema opera a través de una red local — lo único que necesitas es un router. Sin dependencia de internet, sin cortes por fallo del proveedor.</p>
 					</details>
-					<details class="card faq">
-						<summary>¿Podemos agregar features a medida?</summary>
-						<p class="muted">
-							Sí. La web queda lista para mostrar features actuales y también para ir sumando nuevas
-							según tu roadmap.
-						</p>
+					<details class="card faq-item">
+						<summary>¿Puedo ver una demo antes de decidir?</summary>
+						<p class="muted">Sí. Contáctanos por WhatsApp, Telegram o email y coordinamos una demostración en vivo del sistema completo. No hay compromiso de compra. Te mostramos cada módulo funcionando en tiempo real.</p>
 					</details>
 				</div>
 			</div>
 		</section>
+
 	</main>
 
+	<!-- FOOTER -->
 	<footer class="footer">
 		<div class="container footer-inner">
-			<p class="muted">
-				© {year} ComPay — software profesional de órdenes con foco en negocios cubanos · de primera línea en su tipo
-				en Cuba
-			</p>
-			<div class="footer-links">
-				<a class="muted" href="#inicio">Volver arriba</a>
-				<a class="muted" href="mailto:hola@compay.app">hola@compay.app</a>
+			<div class="footer-brand">
+				<a class="brand" href="#inicio" aria-label="ComPay">
+					<span class="brand-mark"></span>
+					<span class="brand-name">ComPay</span>
+				</a>
+				<p class="muted footer-tag">Gestiona tu negocio. En tiempo real.</p>
 			</div>
+			<nav class="footer-nav">
+				<a class="muted" href="#apps">Apps</a>
+				<a class="muted" href="#features">Features</a>
+				<a class="muted" href="#como-funciona">Cómo funciona</a>
+				<a class="muted" href="#planes">Precios</a>
+				<a class="muted" href="#faq">FAQ</a>
+				<a class="muted" href="#contacto">Contacto</a>
+			</nav>
+			<p class="muted footer-copy">© {year} ComPay</p>
 		</div>
 	</footer>
 </div>
 
 <style>
-	.page {
-		min-height: 100vh;
-	}
+	/* ─── PAGE ─── */
+	.page { min-height: 100vh; }
 
+	/* ─── TOPBAR ─── */
 	.topbar {
 		position: sticky;
 		top: 0;
 		z-index: 50;
-		backdrop-filter: blur(14px);
-		background: rgba(7, 10, 18, 0.55);
-		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(16px);
+		background: rgba(7, 10, 18, 0.6);
+		border-bottom: 1px solid rgba(255,255,255,0.07);
 	}
-
 	.topbar-inner {
 		display: flex;
 		align-items: center;
@@ -566,7 +706,6 @@ const BASE = import.meta.env.BASE_URL;
 		padding: 14px 0;
 		gap: 16px;
 	}
-
 	.brand {
 		display: inline-flex;
 		align-items: center;
@@ -575,533 +714,598 @@ const BASE = import.meta.env.BASE_URL;
 		font-weight: 800;
 		letter-spacing: -0.02em;
 	}
-
 	.brand-mark {
 		width: 14px;
 		height: 14px;
 		border-radius: 6px;
-		background: linear-gradient(135deg, rgba(124, 58, 237, 1), rgba(34, 197, 94, 0.95));
-		box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.12);
+		background: linear-gradient(135deg, #5b4fcf, #22c55e);
+		box-shadow: 0 0 0 5px rgba(91,79,207,0.15);
 	}
-
-	.brand-name {
-		font-size: 16px;
-	}
-
+	.brand-name { font-size: 16px; }
 	.nav {
 		display: flex;
 		align-items: center;
-		gap: 14px;
+		gap: 4px;
 	}
-
 	.nav a {
 		text-decoration: none;
-		color: rgba(255, 255, 255, 0.82);
-		font-weight: 600;
+		color: rgba(255,255,255,0.78);
+		font-weight: 500;
 		font-size: 13px;
-		padding: 10px 10px;
-		border-radius: 10px;
+		padding: 8px 12px;
+		border-radius: 8px;
+		transition: background 0.15s;
 	}
+	.nav a:hover { background: rgba(255,255,255,0.06); }
+	.nav-cta { display: flex; gap: 10px; align-items: center; }
 
-	.nav a:hover {
-		background: rgba(255, 255, 255, 0.06);
-	}
-
-	.nav-cta {
-		display: flex;
-		gap: 10px;
-		align-items: center;
-	}
-
-	.hero {
-		padding: 56px 0 22px;
-	}
-
+	/* ─── HERO ─── */
+	.hero { padding: 64px 0 28px; }
 	.hero-inner {
 		display: grid;
-		grid-template-columns: 1.1fr 0.9fr;
-		gap: 22px;
-		align-items: start;
+		grid-template-columns: 1fr 1fr;
+		gap: 32px;
+		align-items: center;
 	}
-
+	.hero-badge {
+		display: inline-flex;
+		align-items: center;
+		gap: 10px;
+		padding: 7px 14px;
+		border-radius: 999px;
+		background: rgba(91,79,207,0.12);
+		border: 1px solid rgba(91,79,207,0.28);
+		color: rgba(255,255,255,0.8);
+		font-size: 12px;
+		font-weight: 500;
+		margin-bottom: 20px;
+	}
+	.badge-pulse {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+		background: #22c55e;
+		box-shadow: 0 0 0 3px rgba(34,197,94,0.25);
+		flex-shrink: 0;
+	}
 	h1 {
-		font-size: 44px;
+		font-size: 48px;
 		line-height: 1.05;
-		letter-spacing: -0.03em;
-		margin: 16px 0 12px;
+		letter-spacing: -0.035em;
+		margin: 0 0 18px;
 	}
-
 	.grad {
-		background: linear-gradient(90deg, rgba(96, 165, 250, 0.95), rgba(34, 197, 94, 0.92));
+		background: linear-gradient(90deg, #60a5fa, #22c55e);
 		-webkit-background-clip: text;
 		background-clip: text;
 		color: transparent;
 	}
-
-	.lead {
-		font-size: 16px;
-		line-height: 1.6;
-		max-width: 56ch;
-		margin-top: 12px;
-	}
-
-	.hero-subhead {
+	.hero-sub {
 		font-size: 17px;
-		line-height: 1.55;
-		max-width: 62ch;
-		margin: 0;
-		color: rgba(255, 255, 255, 0.9);
+		line-height: 1.6;
+		color: rgba(255,255,255,0.78);
+		max-width: 52ch;
+		margin: 0 0 24px;
 	}
-
-	.hero-subhead strong {
-		color: rgba(255, 255, 255, 1);
-	}
-
-	.hero-cta {
+	.hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+	.hero-metrics {
 		display: flex;
-		gap: 12px;
-		margin-top: 18px;
-		flex-wrap: wrap;
+		align-items: center;
+		gap: 20px;
+	}
+	.metric { display: flex; flex-direction: column; gap: 2px; }
+	.metric-n {
+		font-size: 22px;
+		font-weight: 900;
+		letter-spacing: -0.03em;
+		color: rgba(255,255,255,0.95);
+	}
+	.metric-l { font-size: 12px; }
+	.metric-sep {
+		width: 1px;
+		height: 32px;
+		background: rgba(255,255,255,0.12);
 	}
 
-	.trust {
-		margin-top: 18px;
-		display: flex;
-		gap: 14px;
-		flex-wrap: wrap;
-	}
-
-	.trust-item {
-		padding: 10px 12px;
-		border-radius: 14px;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background: rgba(255, 255, 255, 0.04);
-	}
-
-	.kpi {
-		font-weight: 800;
-		display: block;
-	}
-
-	.hero-visual {
-		padding: 14px;
-	}
-
-	.hero-devices {
+	/* Hero screens */
+	.hero-screens {
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 14px;
-		padding: 10px 4px 4px;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 12px;
 		align-items: start;
 	}
-
-	.device-frame {
-		margin: 0;
+	.screen-main {
+		padding: 0;
+		overflow: hidden;
 	}
-
-	.device-frame img {
+	.screen-bar {
+		display: flex;
+		align-items: center;
+		gap: 7px;
+		padding: 10px 14px;
+		border-bottom: 1px solid rgba(255,255,255,0.08);
+	}
+	.dot {
+		width: 9px;
+		height: 9px;
+		border-radius: 50%;
+		background: rgba(255,255,255,0.18);
+	}
+	.screen-label {
+		margin-left: 6px;
+		font-size: 11px;
+		color: rgba(255,255,255,0.55);
+		font-weight: 600;
+	}
+	.screen-main img {
 		width: 100%;
 		height: auto;
 		display: block;
-		border-radius: 22px;
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		box-shadow: 0 22px 60px rgba(0, 0, 0, 0.45);
-		background: rgba(255, 255, 255, 0.04);
 	}
-
-	.device-frame-secondary {
-		margin-top: 34px;
-	}
-
-	.cap {
-		margin: 10px 6px 0;
-		font-size: 12px;
-		line-height: 1.45;
-	}
-
-	.cap-cap {
-		margin: 10px 0 0;
-		font-size: 12px;
-		line-height: 1.45;
-	}
-
-	.mock-top {
+	.screen-col {
 		display: flex;
-		align-items: center;
-		gap: 8px;
-		padding: 10px 10px 12px;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-	}
-
-	.dot {
-		width: 10px;
-		height: 10px;
-		border-radius: 99px;
-		background: rgba(255, 255, 255, 0.18);
-	}
-
-	.mock-title {
-		margin-left: 6px;
-		font-size: 12px;
-		color: rgba(255, 255, 255, 0.7);
-		font-weight: 600;
-	}
-
-	.mock-grid {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+		flex-direction: column;
 		gap: 12px;
-		padding: 14px 8px 6px;
 	}
-
-	.mock-col {
-		padding: 10px;
-		border-radius: 14px;
-		background: rgba(255, 255, 255, 0.04);
-		border: 1px solid rgba(255, 255, 255, 0.09);
-	}
-
-	.mock-h {
-		margin: 0 0 10px;
-		font-weight: 800;
-		letter-spacing: -0.02em;
-	}
-
-	.mock-item {
-		display: grid;
-		grid-template-columns: auto 1fr auto;
-		gap: 10px;
-		align-items: center;
-		padding: 10px;
-		border-radius: 12px;
-		background: rgba(0, 0, 0, 0.18);
-		border: 1px solid rgba(255, 255, 255, 0.08);
-		margin-bottom: 10px;
-	}
-
-	.pill {
-		font-weight: 900;
-		color: rgba(255, 255, 255, 0.9);
-		background: rgba(124, 58, 237, 0.18);
-		border: 1px solid rgba(124, 58, 237, 0.25);
-		padding: 6px 10px;
-		border-radius: 999px;
-		font-size: 12px;
-	}
-
-	.name {
-		font-weight: 700;
-		font-size: 13px;
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.state {
-		font-size: 12px;
-		font-weight: 800;
-		padding: 6px 10px;
-		border-radius: 999px;
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		color: rgba(255, 255, 255, 0.86);
-	}
-
-	.s-new {
-		background: rgba(96, 165, 250, 0.14);
-	}
-	.s-pay {
-		background: rgba(34, 197, 94, 0.14);
-	}
-	.s-send {
-		background: rgba(124, 58, 237, 0.14);
-	}
-	.s-prog {
-		background: rgba(251, 191, 36, 0.14);
-	}
-	.s-ready {
-		background: rgba(34, 197, 94, 0.14);
-	}
-	.s-done {
-		background: rgba(148, 163, 184, 0.14);
-	}
-
-	.mock-foot {
-		margin: 8px 8px 0;
-		font-size: 12px;
-	}
-
-	.section {
-		padding: 44px 0;
-	}
-
-	.section-head {
-		display: grid;
-		grid-template-columns: 1fr;
-		gap: 10px;
-		margin-bottom: 18px;
-	}
-
-	h2 {
+	.screen-sm {
 		margin: 0;
-		font-size: 26px;
-		letter-spacing: -0.02em;
+		overflow: hidden;
+		padding: 0;
 	}
-
-	h3 {
-		margin: 0 0 8px;
-		letter-spacing: -0.02em;
+	.screen-sm img {
+		width: 100%;
+		height: auto;
+		display: block;
 	}
+	.screen-tv-hero img { object-fit: cover; max-height: 140px; object-position: center; }
+	.cap { margin: 8px 10px; font-size: 11px; line-height: 1.4; }
 
-	.flow {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		gap: 14px;
-		padding: 18px;
+	/* ─── SECTIONS ─── */
+	.section { padding: 56px 0; }
+	.section-head {
+		margin-bottom: 28px;
+		max-width: 640px;
 	}
-
-	.flow-step {
-		padding: 14px;
-		border-radius: 16px;
-		background: rgba(255, 255, 255, 0.04);
-		border: 1px solid rgba(255, 255, 255, 0.1);
-	}
-
-	.flow-n {
-		width: 28px;
-		height: 28px;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		border-radius: 10px;
-		font-weight: 900;
-		background: rgba(96, 165, 250, 0.14);
-		border: 1px solid rgba(96, 165, 250, 0.18);
+	.section-label {
+		display: inline-block;
+		font-size: 12px;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: #60a5fa;
 		margin-bottom: 10px;
 	}
+	h2 {
+		margin: 0 0 10px;
+		font-size: 28px;
+		letter-spacing: -0.025em;
+		line-height: 1.2;
+	}
+	h3 { margin: 0 0 8px; letter-spacing: -0.02em; font-size: 18px; }
+	h4 { margin: 0 0 6px; letter-spacing: -0.015em; font-size: 15px; }
 
-	.grid3 {
+	/* ─── PROBLEMA ─── */
+	.problems {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 14px;
 	}
-
-	.grid2 {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 14px;
-	}
-
-	.tile {
-		padding: 18px;
-	}
-
-	.list {
-		margin: 12px 0 0;
-		padding-left: 18px;
-		color: rgba(255, 255, 255, 0.78);
-	}
-
-	.list li {
-		margin: 8px 0;
-	}
-
-	figure.shot {
-		margin: 14px 0 0;
-		padding: 0;
-		border-radius: 14px;
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		background: rgba(0, 0, 0, 0.2);
-		overflow: hidden;
-	}
-
-	.shot img {
-		width: 100%;
-		height: auto;
-		display: block;
-		max-height: 400px;
-		object-fit: cover;
-		object-position: top center;
-	}
-
-	.tv {
-		margin-top: 14px;
-		padding: 18px;
-		display: grid;
-		grid-template-columns: 1.2fr 0.8fr;
-		gap: 14px;
-		align-items: center;
-	}
-
-	figure.tv-shot {
-		margin: 0;
-		border-radius: 14px;
-		border: 1px solid rgba(255, 255, 255, 0.14);
-		background: #05070d;
-		overflow: hidden;
-		align-self: stretch;
-		min-height: 200px;
-	}
-
-	.tv-shot img {
-		width: 100%;
-		height: auto;
-		display: block;
-		object-fit: contain;
-	}
-
-	.tv-badges {
-		margin-top: 10px;
-		display: flex;
-		gap: 10px;
-		flex-wrap: wrap;
-	}
-
-	.tool-grid {
-		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 14px;
-	}
-
-	.tool-card {
-		padding: 16px;
-	}
-
-	.tool-shot {
-		margin: 12px 0 0;
-		border-radius: 14px;
-		overflow: hidden;
-		border: 1px solid rgba(255, 255, 255, 0.1);
-		background: rgba(255, 255, 255, 0.03);
-	}
-
-	.tool-shot img {
-		width: 100%;
-		display: block;
-		height: auto;
-		max-height: 300px;
-		object-fit: cover;
-		object-position: top center;
-	}
-
-	.feat-tile {
+	.problem {
+		padding: 20px;
 		display: flex;
 		flex-direction: column;
+		gap: 10px;
+	}
+	.problem-top { display: flex; flex-direction: column; gap: 10px; }
+	.prob-ico {
+		width: 40px;
+		height: 40px;
+		border-radius: 12px;
+		background: rgba(91,79,207,0.14);
+		border: 1px solid rgba(91,79,207,0.22);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #a78bfa;
+	}
+	.prob-sol {
+		margin-top: auto;
+		padding-top: 14px;
+		border-top: 1px solid rgba(255,255,255,0.07);
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+	.sol-tag {
+		font-size: 11px;
+		font-weight: 700;
+		letter-spacing: 0.04em;
+		color: #22c55e;
+		text-transform: uppercase;
 	}
 
-	.feat-shot {
-		margin: 14px 0 0;
-		border-radius: 14px;
-		overflow: hidden;
-		border: 1px solid rgba(255, 255, 255, 0.12);
-		background: rgba(0, 0, 0, 0.18);
+	/* ─── APPS ─── */
+	.apps-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 14px;
+	}
+	.app-card { padding: 20px; display: flex; flex-direction: column; gap: 0; }
+	.app-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px;
+		margin-bottom: 12px;
+	}
+	.app-platforms { display: flex; gap: 6px; flex-wrap: wrap; }
+	.app-tag {
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		padding: 4px 10px;
+		border-radius: 999px;
+	}
+	.pos-tag { background: rgba(91,79,207,0.18); color: #a78bfa; border: 1px solid rgba(91,79,207,0.25); }
+	.tv-tag { background: rgba(34,197,94,0.14); color: #4ade80; border: 1px solid rgba(34,197,94,0.22); }
+	.admin-tag { background: rgba(96,165,250,0.14); color: #93c5fd; border: 1px solid rgba(96,165,250,0.22); }
+	.app-card p { margin: 6px 0 14px; font-size: 14px; line-height: 1.55; }
+	.app-list {
+		margin: 0 0 16px;
+		padding-left: 18px;
+		color: rgba(255,255,255,0.75);
+		font-size: 13px;
 		flex: 1;
-		min-height: 0;
 	}
-
-	.feat-shot img {
+	.app-list li { margin: 7px 0; }
+	.app-shots {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 8px;
+		margin-top: auto;
+	}
+	.app-shots figure {
+		margin: 0;
+		border-radius: 10px;
+		overflow: hidden;
+		border: 1px solid rgba(255,255,255,0.1);
+		background: rgba(0,0,0,0.2);
+	}
+	.app-shots img {
 		width: 100%;
+		height: 120px;
+		object-fit: cover;
+		object-position: top center;
 		display: block;
+	}
+	.app-shots-wide { grid-template-columns: 1fr; }
+	.app-shots-wide img { height: 180px; object-fit: cover; object-position: top; }
+
+	/* ─── FEATURES GRID ─── */
+	.feat-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 12px;
+	}
+	.feat-card { padding: 18px; }
+	.feat-ico {
+		width: 38px;
+		height: 38px;
+		border-radius: 10px;
+		background: rgba(91,79,207,0.12);
+		border: 1px solid rgba(91,79,207,0.2);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: #a78bfa;
+		margin-bottom: 12px;
+	}
+	.feat-card p { font-size: 13px; line-height: 1.55; margin: 0; }
+
+	/* ─── DASHBOARD HIGHLIGHT ─── */
+	.section-dash {
+		background: linear-gradient(135deg, rgba(91,79,207,0.08) 0%, transparent 60%);
+		border-top: 1px solid rgba(91,79,207,0.12);
+		border-bottom: 1px solid rgba(91,79,207,0.12);
+	}
+	.dash-inner {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 40px;
+		align-items: center;
+	}
+	.dash-copy { display: flex; flex-direction: column; gap: 16px; }
+	.dash-copy h2 { margin: 0; }
+	.dash-copy p { margin: 0; font-size: 15px; line-height: 1.6; }
+	.check-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.check-list li {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-size: 14px;
+		color: rgba(255,255,255,0.82);
+	}
+	.chk {
+		color: #22c55e;
+		font-weight: 900;
+		flex-shrink: 0;
+	}
+	.dash-screens {
+		display: grid;
+		grid-template-columns: 1.1fr 0.9fr;
+		gap: 10px;
+		align-items: start;
+	}
+	.dash-shot, .dash-shot-2 { margin: 0; overflow: hidden; padding: 0; }
+	.dash-shot img, .dash-shot-2 img { width: 100%; height: auto; display: block; }
+	.dash-shot-2 { margin-top: 28px; }
+
+	/* ─── CÓMO FUNCIONA ─── */
+	.flow { display: flex; flex-direction: column; gap: 0; }
+	.flow-item {
+		display: grid;
+		grid-template-columns: 64px 1fr;
+		gap: 0;
+	}
+	.flow-left {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 4px;
+	}
+	.flow-n {
+		width: 36px;
+		height: 36px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 50%;
+		background: rgba(91,79,207,0.18);
+		border: 1px solid rgba(91,79,207,0.3);
+		font-size: 12px;
+		font-weight: 900;
+		color: #a78bfa;
+		flex-shrink: 0;
+	}
+	.flow-line {
+		flex: 1;
+		width: 1px;
+		background: rgba(91,79,207,0.2);
+		margin: 8px 0;
+		min-height: 32px;
+	}
+	.flow-body { padding: 0 0 32px 16px; }
+	.flow-body h3 { margin-bottom: 8px; }
+	.flow-body p { font-size: 14px; line-height: 1.6; margin: 0 0 14px; max-width: 56ch; }
+	.flow-shot {
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+		max-width: 340px;
+	}
+	.flow-shot img {
+		width: 100%;
 		height: auto;
-		max-height: 340px;
+		display: block;
+		max-height: 220px;
 		object-fit: cover;
 		object-position: top center;
 	}
 
-	.plan {
-		padding: 18px;
+	/* ─── GESTIÓN ─── */
+	.mgmt-grid {
 		display: grid;
-		gap: 10px;
-	}
-
-	.plan.featured {
-		border-color: rgba(96, 165, 250, 0.28);
-		box-shadow: 0 26px 90px rgba(96, 165, 250, 0.08);
-	}
-
-	.contact {
-		padding: 22px;
-		display: grid;
-		grid-template-columns: 1.1fr 0.9fr;
-		gap: 14px;
-		align-items: start;
-	}
-
-	.contact-mini {
-		display: grid;
+		grid-template-columns: repeat(4, 1fr);
 		gap: 12px;
 	}
-
-	.mini {
-		padding: 14px;
-		border-radius: 16px;
+	.mgmt-card { padding: 16px; }
+	.mgmt-card p { font-size: 13px; line-height: 1.5; margin: 0 0 12px; }
+	.mgmt-shot {
+		margin: 0;
+		border-radius: 10px;
+		overflow: hidden;
+		border: 1px solid rgba(255,255,255,0.1);
+		background: rgba(0,0,0,0.2);
+	}
+	.mgmt-shot img {
+		width: 100%;
+		height: 160px;
+		object-fit: cover;
+		object-position: top center;
+		display: block;
 	}
 
-	.mini-k {
-		margin: 0 0 8px;
-		font-weight: 900;
+	/* ─── TECH ─── */
+	.section-tech {
+		background: rgba(255,255,255,0.015);
+		border-top: 1px solid rgba(255,255,255,0.06);
+		border-bottom: 1px solid rgba(255,255,255,0.06);
 	}
-
-	.faq {
+	.tech-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 12px;
+	}
+	.tech-item {
 		padding: 16px 18px;
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
 	}
-
-	.faq summary {
-		cursor: pointer;
+	.tech-name {
+		font-size: 15px;
 		font-weight: 800;
+		letter-spacing: -0.01em;
 	}
+	.tech-item span:last-child { font-size: 13px; }
 
-	.faq p {
-		margin: 12px 0 0;
+	/* ─── PLANES ─── */
+	.plans-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 12px;
+		margin-bottom: 16px;
 	}
-
-	.footer {
-		padding: 28px 0 46px;
+	.plan {
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
 	}
+	.plan h3 { font-size: 20px; }
+	.plan p { font-size: 13px; margin: 0; }
+	.plan-featured {
+		border-color: rgba(96,165,250,0.3);
+		box-shadow: 0 0 40px rgba(96,165,250,0.07);
+	}
+	.plan-chip { align-self: flex-start; }
+	.plan-feat {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+	.plan-feat li {
+		font-size: 13px;
+		color: rgba(255,255,255,0.72);
+		padding-left: 14px;
+		position: relative;
+	}
+	.plan-feat li::before {
+		content: "✓";
+		position: absolute;
+		left: 0;
+		color: #22c55e;
+		font-weight: 900;
+		font-size: 11px;
+	}
+	.plans-note { font-size: 13px; text-align: center; }
 
+	/* ─── CONTACTO CTA ─── */
+	.section-cta {
+		background: linear-gradient(135deg, rgba(91,79,207,0.1), transparent 50%);
+	}
+	.cta-box {
+		padding: 32px;
+		display: grid;
+		grid-template-columns: 1fr auto;
+		gap: 32px;
+		align-items: center;
+	}
+	.cta-copy h2 { margin: 0 0 10px; font-size: 26px; }
+	.cta-copy p { margin: 0 0 20px; font-size: 15px; }
+	.cta-btns { display: flex; gap: 10px; flex-wrap: wrap; }
+	.cta-btns .btn { font-size: 14px; }
+	.cta-stats {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		min-width: 120px;
+	}
+	.cta-stat { display: flex; flex-direction: column; gap: 2px; }
+	.cta-n {
+		font-size: 26px;
+		font-weight: 900;
+		letter-spacing: -0.03em;
+	}
+	.cta-stat span:last-child { font-size: 12px; }
+
+	/* ─── FAQ ─── */
+	.faq-grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 12px;
+	}
+	.faq-item { padding: 16px 18px; }
+	.faq-item summary {
+		cursor: pointer;
+		font-weight: 700;
+		font-size: 14px;
+		line-height: 1.4;
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 12px;
+	}
+	.faq-item summary::-webkit-details-marker { display: none; }
+	.faq-item summary::after {
+		content: "+";
+		font-size: 18px;
+		font-weight: 300;
+		color: rgba(255,255,255,0.4);
+		flex-shrink: 0;
+	}
+	.faq-item[open] summary::after { content: "−"; }
+	.faq-item p { margin: 12px 0 0; font-size: 13px; line-height: 1.6; }
+
+	/* ─── FOOTER ─── */
+	.footer { padding: 32px 0 48px; border-top: 1px solid rgba(255,255,255,0.06); }
 	.footer-inner {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 14px;
+		gap: 20px;
 		flex-wrap: wrap;
 	}
+	.footer-brand { display: flex; flex-direction: column; gap: 6px; }
+	.footer-tag { font-size: 13px; margin: 0; }
+	.footer-nav { display: flex; gap: 8px; flex-wrap: wrap; }
+	.footer-nav a {
+		font-size: 13px;
+		text-decoration: none;
+		padding: 4px 8px;
+		border-radius: 6px;
+		transition: background 0.15s;
+	}
+	.footer-nav a:hover { background: rgba(255,255,255,0.06); }
+	.footer-copy { font-size: 13px; margin: 0; }
 
-	.footer-links {
-		display: flex;
-		gap: 12px;
+	/* ─── RESPONSIVE ─── */
+	@media (max-width: 1024px) {
+		.feat-grid { grid-template-columns: repeat(2, 1fr); }
+		.mgmt-grid { grid-template-columns: repeat(2, 1fr); }
 	}
 
-	@media (max-width: 980px) {
-		.nav {
-			display: none;
-		}
-		.hero-inner {
-			grid-template-columns: 1fr;
-		}
-		h1 {
-			font-size: 38px;
-		}
-		.hero-devices {
-			grid-template-columns: 1fr;
-		}
-		.device-frame-secondary {
-			margin-top: 0;
-		}
-		.flow {
-			grid-template-columns: 1fr 1fr;
-		}
-		.grid3 {
-			grid-template-columns: 1fr;
-		}
-		.grid2 {
-			grid-template-columns: 1fr;
-		}
-		.tv {
-			grid-template-columns: 1fr;
-		}
-		.tool-grid {
-			grid-template-columns: 1fr;
-		}
-		.contact {
-			grid-template-columns: 1fr;
-		}
+	@media (max-width: 880px) {
+		.nav { display: none; }
+		h1 { font-size: 36px; }
+		.hero-inner { grid-template-columns: 1fr; }
+		.hero-screens { grid-template-columns: 1fr 1fr; }
+		.problems { grid-template-columns: 1fr; }
+		.apps-grid { grid-template-columns: 1fr; }
+		.dash-inner { grid-template-columns: 1fr; }
+		.dash-screens { grid-template-columns: 1fr 1fr; }
+		.feat-grid { grid-template-columns: repeat(2, 1fr); }
+		.mgmt-grid { grid-template-columns: repeat(2, 1fr); }
+		.tech-grid { grid-template-columns: repeat(2, 1fr); }
+		.plans-grid { grid-template-columns: repeat(2, 1fr); }
+		.faq-grid { grid-template-columns: 1fr; }
+		.cta-box { grid-template-columns: 1fr; }
+		.cta-stats { flex-direction: row; flex-wrap: wrap; }
+	}
+
+	@media (max-width: 560px) {
+		h1 { font-size: 30px; }
+		.hero-screens { grid-template-columns: 1fr; }
+		.screen-col { flex-direction: row; }
+		.screen-col .screen-sm { flex: 1; }
+		.feat-grid { grid-template-columns: 1fr; }
+		.mgmt-grid { grid-template-columns: 1fr; }
+		.tech-grid { grid-template-columns: 1fr; }
+		.plans-grid { grid-template-columns: 1fr; }
+		.hero-metrics { gap: 14px; }
+		.metric-n { font-size: 18px; }
 	}
 </style>
