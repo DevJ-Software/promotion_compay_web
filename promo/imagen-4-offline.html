@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1080px; overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .wrap {
+    width: 1080px; height: 1080px;
+    background: #07090f;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Radial glow from center */
+  .glow {
+    position: absolute; width: 800px; height: 800px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center,
+      rgba(91,79,207,0.22) 0%,
+      rgba(91,79,207,0.08) 40%,
+      transparent 70%);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+  }
+
+  /* Rings */
+  .ring {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(91,79,207,0.15);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+  }
+  .ring-1 { width: 300px; height: 300px; border-color: rgba(91,79,207,0.3); }
+  .ring-2 { width: 500px; height: 500px; border-color: rgba(91,79,207,0.18); }
+  .ring-3 { width: 720px; height: 720px; border-color: rgba(91,79,207,0.10); }
+  .ring-4 { width: 960px; height: 960px; border-color: rgba(91,79,207,0.06); }
+
+  /* Dots on rings */
+  .ring-dot {
+    position: absolute; width: 10px; height: 10px; border-radius: 50%;
+    background: rgba(91,79,207,0.6);
+    top: 50%; left: 50%; transform: translate(-50%, -50%);
+  }
+
+  .content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column;
+    align-items: center; text-align: center;
+    padding: 60px;
+  }
+
+  /* Big icon */
+  .main-icon {
+    width: 140px; height: 140px; border-radius: 36px;
+    background: linear-gradient(135deg, #1e1855, #2d2580);
+    border: 2px solid rgba(91,79,207,0.5);
+    box-shadow: 0 0 60px rgba(91,79,207,0.3), 0 20px 60px rgba(0,0,0,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 68px; margin-bottom: 44px;
+  }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+    color: #4ade80; font-size: 16px; font-weight: 700;
+    padding: 8px 20px; border-radius: 100px; margin-bottom: 28px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .dot-g { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+
+  .headline {
+    font-size: 76px; font-weight: 900; color: #fff;
+    letter-spacing: -3px; line-height: 0.95; margin-bottom: 12px;
+  }
+  .headline .big { font-size: 110px; color: transparent;
+    -webkit-text-stroke: 3px rgba(91,79,207,0.8);
+    display: block; letter-spacing: -5px;
+  }
+  .headline .sub-hl { font-size: 42px; color: #a78bfa; letter-spacing: -1px; display: block; margin-top: 4px; }
+
+  .desc {
+    font-size: 22px; color: rgba(255,255,255,0.5); max-width: 620px;
+    line-height: 1.55; margin: 32px 0 52px;
+  }
+  .desc strong { color: rgba(255,255,255,0.8); }
+
+  /* Stat boxes */
+  .stats { display: flex; gap: 20px; margin-bottom: 56px; }
+  .stat {
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 20px; padding: 28px 36px; text-align: center; min-width: 160px;
+  }
+  .stat .n { font-size: 44px; font-weight: 900; color: #a78bfa; line-height: 1; }
+  .stat .l { font-size: 14px; color: rgba(255,255,255,0.4); margin-top: 6px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .features-row { display: flex; gap: 16px; margin-bottom: 52px; flex-wrap: wrap; justify-content: center; }
+  .feat-pill {
+    display: flex; align-items: center; gap: 10px;
+    background: rgba(91,79,207,0.12); border: 1px solid rgba(91,79,207,0.3);
+    color: rgba(255,255,255,0.75); font-size: 17px; font-weight: 600;
+    padding: 12px 22px; border-radius: 100px;
+  }
+  .feat-pill .fi { font-size: 20px; }
+
+  .footer {
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+  }
+  .brand { font-size: 28px; font-weight: 900;
+    background: linear-gradient(135deg, #a78bfa, #60a5fa);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  }
+  .contact { font-size: 17px; color: rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="glow"></div>
+  <div class="ring ring-1"></div>
+  <div class="ring ring-2"></div>
+  <div class="ring ring-3"></div>
+  <div class="ring ring-4"></div>
+
+  <div class="content">
+    <div class="main-icon">📶</div>
+
+    <div class="badge"><span class="dot-g"></span> Ventaja competitiva</div>
+
+    <div class="headline">
+      <span class="big">100%</span>
+      <span class="sub-hl">Sin internet. Sin problema.</span>
+    </div>
+
+    <div class="desc">
+      ComPay funciona en tu <strong>red local</strong>. Se va el WiFi, sigues vendiendo.<br>
+      Sin suscripciones en la nube. Sin depender de nadie.
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">0ms</div><div class="l">Latencia local</div></div>
+      <div class="stat"><div class="n">24/7</div><div class="l">Disponibilidad</div></div>
+      <div class="stat"><div class="n">Flex</div><div class="l">Tu decides el periodo</div></div>
+    </div>
+
+    <div class="features-row">
+      <div class="feat-pill"><span class="fi">🔌</span> Red local WiFi o cable</div>
+      <div class="feat-pill"><span class="fi">💾</span> Datos guardados localmente</div>
+      <div class="feat-pill"><span class="fi">🔄</span> Sincronizacion instantanea</div>
+      <div class="feat-pill"><span class="fi">🛡️</span> Sin servidores externos</div>
+    </div>
+
+    <div class="footer">
+      <div class="brand">ComPay</div>
+      <div class="contact">+53 5563 3131 &nbsp;·&nbsp; janderdeveloper@gmail.com</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

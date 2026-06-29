@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1080px; overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #0b0918;
+  }
+  .wrap {
+    width: 1080px; height: 1080px;
+    background: linear-gradient(160deg, #0e0b22 0%, #1a1245 55%, #0b0918 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+
+  /* Decorative arcs */
+  .arc {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(91,79,207,0.2);
+    pointer-events: none;
+  }
+  .arc-1 { width: 700px; height: 700px; top: -200px; right: -200px; }
+  .arc-2 { width: 900px; height: 900px; top: -300px; right: -350px; border-color: rgba(91,79,207,0.1); }
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .blob-1 { width: 450px; height: 450px; background: #5b4fcf; opacity: 0.2; top: -100px; right: -50px; }
+  .blob-2 { width: 300px; height: 300px; background: #60a5fa; opacity: 0.1; bottom: 100px; left: 80px; }
+
+  /* Left panel */
+  .left {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 560px;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 70px 80px 80px; z-index: 2;
+  }
+
+  .app-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(91,79,207,0.2); border: 1px solid rgba(91,79,207,0.45);
+    color: #a78bfa; font-size: 17px; font-weight: 700;
+    padding: 9px 20px; border-radius: 100px; margin-bottom: 32px;
+    width: fit-content; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .app-label .dot { width: 7px; height: 7px; border-radius: 50%; background: #a78bfa; }
+
+  .headline {
+    font-size: 62px; font-weight: 900; line-height: 1.05;
+    color: #fff; letter-spacing: -2px; margin-bottom: 24px;
+  }
+  .headline .hl { background: linear-gradient(135deg, #a78bfa, #60a5fa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+  .desc {
+    font-size: 20px; color: rgba(255,255,255,0.55); line-height: 1.6;
+    margin-bottom: 44px; max-width: 420px;
+  }
+
+  /* Feature list */
+  .features { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+  .feat {
+    display: flex; align-items: flex-start; gap: 14px;
+  }
+  .feat-icon {
+    width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    background: rgba(91,79,207,0.2); border: 1px solid rgba(91,79,207,0.3);
+  }
+  .feat-text { font-size: 18px; color: rgba(255,255,255,0.8); font-weight: 500; line-height: 1.4; }
+  .feat-text strong { color: #fff; }
+
+  .platforms {
+    display: flex; gap: 12px;
+  }
+  .plat {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.7); font-size: 16px; font-weight: 600;
+    padding: 10px 18px; border-radius: 10px;
+  }
+
+  /* Right panel — mock UI */
+  .right {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 520px;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 2;
+  }
+  .phone-frame {
+    width: 260px; height: 520px; background: #12102a;
+    border-radius: 36px; border: 2px solid rgba(91,79,207,0.4);
+    box-shadow: 0 0 80px rgba(91,79,207,0.25), 0 40px 80px rgba(0,0,0,0.5);
+    overflow: hidden; display: flex; flex-direction: column;
+    position: relative;
+  }
+  .phone-notch {
+    width: 80px; height: 22px; background: #0b0918;
+    border-radius: 0 0 14px 14px; margin: 0 auto; position: relative; z-index: 1;
+  }
+  .phone-topbar {
+    background: linear-gradient(135deg, #5b4fcf, #7c6ef0);
+    padding: 14px 18px; text-align: center;
+    color: #fff; font-weight: 800; font-size: 17px; letter-spacing: 0.5px;
+    margin-top: -4px;
+  }
+  .phone-body { padding: 14px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+  .phone-order-item {
+    background: rgba(255,255,255,0.06); border-radius: 10px; padding: 10px 12px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .item-name { font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 600; }
+  .item-qty  { font-size: 12px; color: rgba(255,255,255,0.4); }
+  .item-price { font-size: 14px; color: #a78bfa; font-weight: 700; }
+  .phone-divider { height: 1px; background: rgba(255,255,255,0.06); margin: 2px 0; }
+  .phone-total {
+    background: rgba(91,79,207,0.2); border-radius: 10px; padding: 12px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .total-label { font-size: 13px; color: rgba(255,255,255,0.5); font-weight: 600; }
+  .total-amount { font-size: 22px; color: #fff; font-weight: 900; }
+  .phone-btn {
+    background: linear-gradient(135deg, #22c55e, #16a34a);
+    border-radius: 10px; padding: 14px;
+    text-align: center; color: #fff; font-weight: 800; font-size: 15px;
+    margin-top: auto;
+  }
+
+  /* Bottom bar */
+  .bottom-bar {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 22px 80px;
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 3;
+  }
+  .brand { font-size: 22px; font-weight: 900; color: #a78bfa; letter-spacing: -0.5px; }
+  .contact-info { font-size: 16px; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="arc arc-1"></div>
+  <div class="arc arc-2"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="left">
+    <div class="app-label"><span class="dot"></span> ComPay POS</div>
+    <div class="headline">Cobra más<br>rápido.<br><span class="hl">Sin errores.</span></div>
+    <div class="desc">Tu punto de venta en el móvil. Toma pedidos, gestiona la caja y controla tu inventario desde cualquier lugar.</div>
+
+    <div class="features">
+      <div class="feat">
+        <div class="feat-icon">📶</div>
+        <div class="feat-text"><strong>100% offline</strong> — funciona sin internet</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">👥</div>
+        <div class="feat-text"><strong>Multi-cajero</strong> — varios dispositivos a la vez</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">🔒</div>
+        <div class="feat-text"><strong>Licencia por dispositivo</strong> — HWID protegido</div>
+      </div>
+      <div class="feat">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-text"><strong>Tiempo real</strong> — sincronización instantánea</div>
+      </div>
+    </div>
+
+    <div class="platforms">
+      <div class="plat">🤖 Android</div>
+      <div class="plat">🍎 iOS</div>
+    </div>
+  </div>
+
+  <div class="right">
+    <div class="phone-frame">
+      <div class="phone-notch"></div>
+      <div class="phone-topbar">Orden #042</div>
+      <div class="phone-body">
+        <div class="phone-order-item">
+          <div><div class="item-name">Pizza Margarita</div><div class="item-qty">x2</div></div>
+          <div class="item-price">$480</div>
+        </div>
+        <div class="phone-order-item">
+          <div><div class="item-name">Refresco Cola</div><div class="item-qty">x3</div></div>
+          <div class="item-price">$150</div>
+        </div>
+        <div class="phone-order-item">
+          <div><div class="item-name">Pan con Lechon</div><div class="item-qty">x1</div></div>
+          <div class="item-price">$180</div>
+        </div>
+        <div class="phone-order-item">
+          <div><div class="item-name">Cafe Cubano</div><div class="item-qty">x2</div></div>
+          <div class="item-price">$80</div>
+        </div>
+        <div class="phone-divider"></div>
+        <div class="phone-total">
+          <div class="total-label">TOTAL</div>
+          <div class="total-amount">$890</div>
+        </div>
+        <div class="phone-btn">Confirmar cobro</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <div class="brand">ComPay</div>
+    <div class="contact-info">+53 5563 3131 &nbsp;·&nbsp; janderdeveloper@gmail.com</div>
+  </div>
+</div>
+</body>
+</html>

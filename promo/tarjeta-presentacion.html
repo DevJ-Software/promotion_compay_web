@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Tarjeta de Presentacion — ComPay</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #1a1a2e;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    min-height: 100vh; padding: 48px 32px; gap: 40px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+
+  .label {
+    color: rgba(255,255,255,0.3); font-size: 13px; font-weight: 700;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    text-align: center; margin-bottom: -28px;
+  }
+
+  /* ═══════════════════════════════
+     Tarjeta: 1050 × 600 px
+     (ratio 3.5" × 2" a 300 dpi)
+  ═══════════════════════════════ */
+  .card {
+    width: 1050px; height: 600px;
+    border-radius: 28px;
+    overflow: hidden; position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.7);
+  }
+
+  /* ─── FRENTE ─── */
+  .front {
+    background: #0b0918;
+    display: flex;
+  }
+
+  /* Decoraciones de fondo */
+  .front-deco {
+    position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+  }
+  .front-deco .blob {
+    position: absolute; border-radius: 50%; filter: blur(80px);
+  }
+  .front-deco .b1 { width: 500px; height: 500px; background: #5b4fcf; opacity: 0.18; top: -180px; left: -100px; }
+  .front-deco .b2 { width: 350px; height: 350px; background: #22c55e; opacity: 0.12; bottom: -100px; right: 80px; }
+  .front-deco .arc {
+    position: absolute; border-radius: 50%;
+    border: 1px solid rgba(91,79,207,0.18);
+  }
+  .front-deco .a1 { width: 500px; height: 500px; top: -160px; left: -160px; }
+  .front-deco .a2 { width: 700px; height: 700px; top: -260px; left: -260px; border-color: rgba(91,79,207,0.10); }
+
+  /* Panel izquierdo */
+  .front-left {
+    flex: 1; padding: 56px 52px; display: flex; flex-direction: column;
+    justify-content: space-between; position: relative; z-index: 2;
+  }
+
+  .brand-block {}
+  .brand-name {
+    font-size: 62px; font-weight: 900; letter-spacing: -2.5px;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c6ef0 50%, #60a5fa 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1; margin-bottom: 8px;
+  }
+  .brand-tagline {
+    font-size: 16px; color: rgba(255,255,255,0.4); font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* Separador */
+  .divider {
+    width: 48px; height: 2px;
+    background: linear-gradient(90deg, #5b4fcf, transparent);
+    border-radius: 2px; margin: 24px 0;
+  }
+
+  /* Nombre y rol */
+  .person-name {
+    font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 4px;
+    letter-spacing: -0.3px;
+  }
+  .person-role {
+    font-size: 14px; color: rgba(255,255,255,0.4); font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+
+  /* Contacto */
+  .contact-block { display: flex; flex-direction: column; gap: 10px; }
+  .contact-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 15px; color: rgba(255,255,255,0.65); font-weight: 500;
+  }
+  .contact-item .ci {
+    width: 28px; height: 28px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px;
+    background: rgba(91,79,207,0.2); border: 1px solid rgba(91,79,207,0.3);
+  }
+
+  /* Apps chips */
+  .apps-row { display: flex; gap: 8px; flex-wrap: wrap; }
+  .app-chip {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 5px 12px; border-radius: 100px;
+    border: 1px solid rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Franja derecha con QR */
+  .front-right {
+    width: 280px; flex-shrink: 0;
+    background: rgba(255,255,255,0.03);
+    border-left: 1px solid rgba(255,255,255,0.07);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 32px 28px; gap: 18px; position: relative; z-index: 2;
+  }
+  .qr-wrap {
+    width: 180px; height: 180px;
+    background: #fff; border-radius: 16px; padding: 10px;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 40px rgba(91,79,207,0.25);
+  }
+  #qrcode { width: 160px; height: 160px; display: block; }
+
+  .qr-label {
+    text-align: center; font-size: 13px; color: rgba(255,255,255,0.45);
+    font-weight: 600; line-height: 1.5;
+  }
+  .qr-label strong { color: rgba(255,255,255,0.75); display: block; font-size: 14px; margin-bottom: 2px; }
+
+  .qr-url {
+    font-size: 10px; color: rgba(255,255,255,0.25); text-align: center;
+    word-break: break-all; line-height: 1.4;
+  }
+
+  /* ─── DORSO ─── */
+  .back {
+    background: linear-gradient(145deg, #0f0b24 0%, #0d1a10 100%);
+    display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden;
+  }
+
+  .back-deco { position: absolute; inset: 0; pointer-events: none; }
+  .back-deco .grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(91,79,207,0.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(91,79,207,0.08) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .back-deco .blob {
+    position: absolute; border-radius: 50%; filter: blur(90px);
+  }
+  .back-deco .b1 { width: 400px; height: 400px; background: #5b4fcf; opacity: 0.15; top: -100px; right: -80px; }
+  .back-deco .b2 { width: 300px; height: 300px; background: #22c55e; opacity: 0.10; bottom: -80px; left: -60px; }
+
+  .back-content {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 16px;
+  }
+
+  /* Logo mark */
+  .logo-mark {
+    width: 88px; height: 88px; border-radius: 24px;
+    background: linear-gradient(135deg, #5b4fcf, #7c6ef0);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 50px rgba(91,79,207,0.4), 0 16px 40px rgba(0,0,0,0.4);
+    font-size: 44px; font-weight: 900; color: #fff; letter-spacing: -2px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+
+  .back-brand-name {
+    font-size: 52px; font-weight: 900; letter-spacing: -2px;
+    background: linear-gradient(135deg, #a78bfa, #7c6ef0, #60a5fa);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  .back-tagline {
+    font-size: 17px; color: rgba(255,255,255,0.35); font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  .back-chips { display: flex; gap: 10px; }
+  .back-chip {
+    font-size: 13px; font-weight: 700; padding: 6px 16px; border-radius: 100px;
+    color: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.10);
+  }
+
+  /* Línea decorativa */
+  .back-line {
+    width: 80px; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(91,79,207,0.6), transparent);
+    border-radius: 2px;
+  }
+
+  .back-bottom {
+    font-size: 12px; color: rgba(255,255,255,0.2); letter-spacing: 0.12em;
+    text-transform: uppercase; font-weight: 600;
+  }
+
+  /* ─── Print styles ─── */
+  @media print {
+    body { background: white; padding: 0; gap: 0; min-height: 0; }
+    .label { display: none; }
+    .card {
+      box-shadow: none; border-radius: 0;
+      page-break-after: always;
+      width: 3.5in; height: 2in;
+    }
+    .card:last-child { page-break-after: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="label">— FRENTE —</div>
+
+<!-- FRENTE -->
+<div class="card front">
+  <div class="front-deco">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="arc a1"></div>
+    <div class="arc a2"></div>
+  </div>
+
+  <div class="front-left">
+    <!-- Marca -->
+    <div class="brand-block">
+      <div class="brand-name">ComPay</div>
+      <div class="brand-tagline">Sistema de gestion para negocios</div>
+    </div>
+
+    <!-- Persona -->
+    <div>
+      <div class="divider"></div>
+      <div class="person-name">Jander Laffita Orduñez</div>
+      <div class="person-role">CEO &amp; Creador de ComPay</div>
+    </div>
+
+    <!-- Contacto -->
+    <div class="contact-block">
+      <div class="contact-item">
+        <div class="ci">📱</div>
+        +53 5563 3131
+      </div>
+      <div class="contact-item">
+        <div class="ci">💬</div>
+        WhatsApp &nbsp;·&nbsp; Telegram
+      </div>
+      <div class="contact-item">
+        <div class="ci">✉️</div>
+        janderdeveloper@gmail.com
+      </div>
+    </div>
+
+    <!-- Chips de apps -->
+    <div class="apps-row">
+      <div class="app-chip">ComPay POS</div>
+      <div class="app-chip">ComPay TV</div>
+      <div class="app-chip">Panel Admin</div>
+    </div>
+  </div>
+
+  <!-- QR -->
+  <div class="front-right">
+    <div class="qr-wrap">
+      <img id="qrcode" src="data:image/png;base64,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" alt="QR ComPay" style="width:160px;height:160px;">
+    </div>
+    <div class="qr-label">
+      <strong>Escanea y conoce el sistema</strong>
+      Visita nuestro sitio web para ver todas las funciones
+    </div>
+    <div class="qr-url">devj-software.github.io/promotion_compay_web/</div>
+  </div>
+</div>
+
+
+<div class="label">— DORSO —</div>
+
+<!-- DORSO -->
+<div class="card back">
+  <div class="back-deco">
+    <div class="grid"></div>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+  </div>
+
+  <div class="back-content">
+    <div class="logo-mark">C</div>
+    <div class="back-brand-name">ComPay</div>
+    <div class="back-tagline">Gestiona tu negocio. En tiempo real.</div>
+    <div class="back-line"></div>
+    <div class="back-chips">
+      <div class="back-chip">📱 Android · iOS</div>
+      <div class="back-chip">📺 Android TV</div>
+      <div class="back-chip">⚡ Tiempo real</div>
+    </div>
+    <div class="back-bottom">100% offline · Red local · Multi-rol</div>
+  </div>
+</div>
+
+
+</body>
+</html>

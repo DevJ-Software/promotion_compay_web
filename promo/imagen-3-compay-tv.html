@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1080px; overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .wrap {
+    width: 1080px; height: 1080px;
+    background: linear-gradient(155deg, #060d1f 0%, #0d1a12 60%, #050d20 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 70px;
+  }
+
+  .blob { position: absolute; border-radius: 50%; filter: blur(100px); pointer-events: none; }
+  .blob-1 { width: 500px; height: 500px; background: #1a3a20; opacity: 0.5; top: -100px; right: -100px; }
+  .blob-2 { width: 400px; height: 400px; background: #0a2a4a; opacity: 0.4; bottom: -80px; left: -80px; }
+
+  /* Stars background */
+  .stars {
+    position: absolute; inset: 0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.6) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px),
+      radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 200px 200px, 150px 150px, 100px 100px;
+    background-position: 0 0, 75px 75px, 30px 120px;
+    opacity: 0.15;
+  }
+
+  .content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+  .app-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: rgba(34,197,94,0.15); border: 1px solid rgba(34,197,94,0.4);
+    color: #4ade80; font-size: 17px; font-weight: 700;
+    padding: 9px 22px; border-radius: 100px; margin-bottom: 28px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #22c55e; box-shadow: 0 0 8px #22c55e; }
+
+  .headline {
+    font-size: 64px; font-weight: 900; color: #fff;
+    text-align: center; letter-spacing: -2px; line-height: 1.1; margin-bottom: 16px;
+  }
+  .headline .hl { color: #22c55e; }
+
+  .sub {
+    font-size: 21px; color: rgba(255,255,255,0.5); text-align: center;
+    max-width: 680px; line-height: 1.5; margin-bottom: 50px;
+  }
+
+  /* TV mockup */
+  .tv-wrap { position: relative; margin-bottom: 44px; }
+  .tv-stand-neck { width: 40px; height: 28px; background: rgba(255,255,255,0.1); margin: 0 auto; border-radius: 0 0 4px 4px; }
+  .tv-stand-base { width: 160px; height: 12px; background: rgba(255,255,255,0.08); border-radius: 6px; margin: 0 auto; }
+
+  .tv-frame {
+    width: 720px; height: 408px;
+    background: #0a0f0a;
+    border-radius: 18px;
+    border: 3px solid rgba(34,197,94,0.3);
+    box-shadow: 0 0 60px rgba(34,197,94,0.15), 0 0 120px rgba(34,197,94,0.08), 0 40px 80px rgba(0,0,0,0.6);
+    overflow: hidden; position: relative;
+  }
+
+  /* TV screen content */
+  .tv-screen {
+    width: 100%; height: 100%;
+    background: linear-gradient(160deg, #0a1a10 0%, #0d1f14 100%);
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    gap: 0; position: relative;
+  }
+
+  /* TV header bar */
+  .tv-header {
+    position: absolute; top: 0; left: 0; right: 0; height: 52px;
+    background: linear-gradient(135deg, #166534, #15803d);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; z-index: 2;
+  }
+  .tv-brand { font-size: 20px; font-weight: 900; color: #fff; letter-spacing: -0.5px; }
+  .tv-time  { font-size: 16px; color: rgba(255,255,255,0.7); font-weight: 600; }
+
+  /* TV menu items */
+  .tv-items { display: contents; }
+  .tv-item {
+    padding: 56px 20px 18px;
+    border-right: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    align-items: center; text-align: center;
+  }
+  .tv-item-emoji { font-size: 36px; margin-bottom: 8px; }
+  .tv-item-name  { font-size: 15px; color: rgba(255,255,255,0.85); font-weight: 700; margin-bottom: 4px; }
+  .tv-item-price { font-size: 20px; color: #4ade80; font-weight: 900; }
+
+  /* Benefits row */
+  .benefits { display: flex; gap: 20px; width: 100%; margin-bottom: 44px; }
+  .benefit {
+    flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px; padding: 24px 20px; text-align: center;
+    transition: border-color 0.3s;
+  }
+  .benefit .bi { font-size: 32px; margin-bottom: 10px; }
+  .benefit .bt { font-size: 16px; color: #fff; font-weight: 700; margin-bottom: 4px; }
+  .benefit .bd { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.4; }
+
+  .footer {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .brand-footer { font-size: 24px; font-weight: 900; color: #4ade80; }
+  .contact { font-size: 17px; color: rgba(255,255,255,0.4); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="stars"></div>
+
+  <div class="content">
+    <div class="app-label"><span class="dot"></span> ComPay TV</div>
+
+    <div class="headline">Tu menú en la<br>pantalla grande. <span class="hl">Sin preguntas.</span></div>
+    <div class="sub">El cliente ve los productos, descripciones y precios en tiempo real. Menos espera, menos confusión, más ventas.</div>
+
+    <!-- TV mockup -->
+    <div class="tv-wrap">
+      <div class="tv-frame">
+        <div class="tv-screen">
+          <div class="tv-header">
+            <div class="tv-brand">ComPay TV — Menu del Dia</div>
+            <div class="tv-time">Atendiendo ahora</div>
+          </div>
+          <div class="tv-items">
+            <div class="tv-item"><div class="tv-item-emoji">🍕</div><div class="tv-item-name">Pizza Margarita</div><div class="tv-item-price">$240</div></div>
+            <div class="tv-item"><div class="tv-item-emoji">🐷</div><div class="tv-item-name">Pan con Lechon</div><div class="tv-item-price">$180</div></div>
+            <div class="tv-item"><div class="tv-item-emoji">🍗</div><div class="tv-item-name">Pollo Asado</div><div class="tv-item-price">$320</div></div>
+            <div class="tv-item"><div class="tv-item-emoji">🥤</div><div class="tv-item-name">Refresco</div><div class="tv-item-price">$50</div></div>
+            <div class="tv-item"><div class="tv-item-emoji">☕</div><div class="tv-item-name">Cafe Cubano</div><div class="tv-item-price">$40</div></div>
+            <div class="tv-item"><div class="tv-item-emoji">🍺</div><div class="tv-item-name">Cerveza Fria</div><div class="tv-item-price">$120</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="tv-stand-neck"></div>
+      <div class="tv-stand-base"></div>
+    </div>
+
+    <div class="benefits">
+      <div class="benefit">
+        <div class="bi">📺</div>
+        <div class="bt">Android TV</div>
+        <div class="bd">Fire TV y cualquier TV con Android</div>
+      </div>
+      <div class="benefit">
+        <div class="bi">🔄</div>
+        <div class="bt">Actualización instantanea</div>
+        <div class="bd">Cambias el precio, se actualiza en TV al instante</div>
+      </div>
+      <div class="benefit">
+        <div class="bi">🌐</div>
+        <div class="bt">Red local</div>
+        <div class="bd">Sin internet. Solo WiFi propio o cable</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="brand-footer">ComPay</div>
+      <div class="contact">+53 5563 3131 &nbsp;·&nbsp; janderdeveloper@gmail.com</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

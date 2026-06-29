@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Segoe UI', system-ui, sans-serif; }
+  .wrap {
+    width: 1080px; height: 1080px;
+    background: #080608;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 52px 64px 44px;
+  }
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 10% 50%, rgba(239,68,68,0.09) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 50% at 90% 50%, rgba(167,139,250,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 30% at 50% 100%, rgba(91,79,207,0.15) 0%, transparent 55%);
+  }
+
+  .top { text-align: center; margin-bottom: 32px; position: relative; z-index: 2; }
+  .topic-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(167,139,250,0.12); border: 1px solid rgba(167,139,250,0.35);
+    color: #c4b5fd; font-size: 15px; font-weight: 700;
+    padding: 7px 18px; border-radius: 100px; margin-bottom: 18px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .headline { font-size: 48px; font-weight: 900; color: #fff; letter-spacing: -2px; line-height: 1.1; }
+  .headline .bad  { color: #f87171; }
+  .headline .good { color: #a78bfa; }
+
+  .cols { display: flex; gap: 20px; width: 100%; position: relative; z-index: 2; flex: 1; }
+  .col {
+    flex: 1; border-radius: 22px; padding: 26px 24px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .col-bad  { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.18); }
+  .col-good { background: rgba(167,139,250,0.06); border: 1px solid rgba(167,139,250,0.22); }
+
+  .col-header {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 4px;
+  }
+  .col-emoji { font-size: 28px; }
+  .col-title { font-size: 21px; font-weight: 900; }
+  .col-bad  .col-title { color: #f87171; }
+  .col-good .col-title { color: #c4b5fd; }
+
+  .item {
+    display: flex; align-items: flex-start; gap: 11px;
+    background: rgba(255,255,255,0.03); border-radius: 12px; padding: 13px 14px;
+  }
+  .item-icon { font-size: 21px; flex-shrink: 0; line-height: 1.4; }
+  .item-title { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 3px; }
+  .item-desc  { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.4; }
+
+  /* Cierre mock */
+  .cierre-mock {
+    background: rgba(167,139,250,0.07); border: 1px solid rgba(167,139,250,0.22);
+    border-radius: 14px; padding: 16px 18px; margin-top: 2px;
+  }
+  .mock-title { font-size: 12px; font-weight: 800; color: #c4b5fd; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .mock-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+  .mock-row:last-child { border-bottom: none; }
+  .mock-label { color: rgba(255,255,255,0.5); }
+  .mock-val { font-weight: 700; }
+  .mock-val.g  { color: #4ade80; }
+  .mock-val.w  { color: #fff; }
+  .mock-val.p  { color: #c4b5fd; }
+
+  .vs { display: flex; align-items: center; font-size: 26px; font-weight: 900; color: rgba(255,255,255,0.10); flex-shrink: 0; }
+
+  .bottom { position: relative; z-index: 2; width: 100%; margin-top: 22px; }
+  .cta-strip {
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(135deg, rgba(91,79,207,0.18), rgba(167,139,250,0.08));
+    border: 1px solid rgba(167,139,250,0.3); border-radius: 18px;
+    padding: 20px 28px;
+  }
+  .cta-left { font-size: 19px; font-weight: 800; color: #fff; }
+  .cta-left span { color: #c4b5fd; }
+  .cta-right { display: flex; align-items: center; gap: 20px; }
+  .cta-contact { font-size: 14px; color: rgba(255,255,255,0.4); }
+  .cta-btn {
+    background: linear-gradient(135deg, #5b4fcf, #7c6ef0);
+    color: #fff; font-size: 16px; font-weight: 800;
+    padding: 12px 24px; border-radius: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bg"></div>
+
+  <div class="top">
+    <div class="topic-badge">Cierre de caja y ventas</div>
+    <div class="headline">Al cerrar el dia: <span class="bad">caos</span><br>o <span class="good">numeros exactos</span>?</div>
+  </div>
+
+  <div class="cols">
+    <div class="col col-bad">
+      <div class="col-header">
+        <div class="col-emoji">😩</div>
+        <div class="col-title">Sin ComPay</div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🧾</div>
+        <div class="item-body">
+          <div class="item-title">Sumas a mano al final del dia</div>
+          <div class="item-desc">Recibos, papelitos y memoria. El cierre dura horas y nunca cuadra del todo</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">❌</div>
+        <div class="item-body">
+          <div class="item-title">No sabes cuanto vendiste de cada cosa</div>
+          <div class="item-desc">Solo sabes el total de caja. No sabes que producto vendio mas ni cual mas gano</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">📵</div>
+        <div class="item-body">
+          <div class="item-title">Sin reporte para el dueno</div>
+          <div class="item-desc">Si el dueno no esta, no sabe lo que paso. Tiene que confiar en el empleado a ciegas</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🗓️</div>
+        <div class="item-body">
+          <div class="item-title">Sin historial ni comparacion</div>
+          <div class="item-desc">No puedes comparar el lunes de hoy con el lunes pasado. Imposible detectar tendencias</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="col col-good">
+      <div class="col-header">
+        <div class="col-emoji">💰</div>
+        <div class="col-title">Con ComPay</div>
+      </div>
+      <div class="item">
+        <div class="item-icon">📊</div>
+        <div class="item-body">
+          <div class="item-title">Dashboard con KPIs en tiempo real</div>
+          <div class="item-desc">Ingresos totales, ordenes del dia y valor promedio por orden. Todo actualizado al instante</div>
+        </div>
+      </div>
+
+      <div class="cierre-mock">
+        <div class="mock-title">Resumen del dia — Hoy</div>
+        <div class="mock-row"><span class="mock-label">Ingresos totales</span><span class="mock-val g">$4,280</span></div>
+        <div class="mock-row"><span class="mock-label">Total de ordenes</span><span class="mock-val w">47</span></div>
+        <div class="mock-row"><span class="mock-label">Ticket promedio</span><span class="mock-val w">$91</span></div>
+        <div class="mock-row"><span class="mock-label">Mejor producto</span><span class="mock-val p">Pizza Margarita</span></div>
+        <div class="mock-row"><span class="mock-label">vs dia anterior</span><span class="mock-val g">+18%</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">📱</div>
+        <div class="item-body">
+          <div class="item-title">Resumen por SMS al dueno</div>
+          <div class="item-desc">Con un boton envias el resumen de ventas a los numeros configurados. Siempre informado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="cta-strip">
+      <div class="cta-left">Cierra cada dia con <span>numeros exactos</span> — sin cuentas, sin sorpresas</div>
+      <div class="cta-right">
+        <div class="cta-contact">+53 5563 3131</div>
+        <div class="cta-btn">Solicitar demo</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

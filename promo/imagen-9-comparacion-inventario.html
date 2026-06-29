@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Segoe UI', system-ui, sans-serif; }
+  .wrap {
+    width: 1080px; height: 1080px;
+    background: #060810;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 52px 64px 44px;
+  }
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 10% 50%, rgba(239,68,68,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 50% at 90% 50%, rgba(96,165,250,0.10) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 30% at 50% 100%, rgba(91,79,207,0.12) 0%, transparent 50%);
+  }
+
+  .top { text-align: center; margin-bottom: 32px; position: relative; z-index: 2; }
+  .topic-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(96,165,250,0.12); border: 1px solid rgba(96,165,250,0.35);
+    color: #60a5fa; font-size: 15px; font-weight: 700;
+    padding: 7px 18px; border-radius: 100px; margin-bottom: 18px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .headline { font-size: 48px; font-weight: 900; color: #fff; letter-spacing: -2px; line-height: 1.1; }
+  .headline .bad { color: #f87171; }
+  .headline .good { color: #60a5fa; }
+
+  .cols { display: flex; gap: 20px; width: 100%; position: relative; z-index: 2; flex: 1; }
+  .col {
+    flex: 1; border-radius: 22px; padding: 26px 24px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .col-bad  { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.18); }
+  .col-good { background: rgba(96,165,250,0.06); border: 1px solid rgba(96,165,250,0.22); }
+
+  .col-header {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 4px;
+  }
+  .col-emoji { font-size: 28px; }
+  .col-title { font-size: 21px; font-weight: 900; }
+  .col-bad  .col-title { color: #f87171; }
+  .col-good .col-title { color: #60a5fa; }
+
+  .item {
+    display: flex; align-items: flex-start; gap: 11px;
+    background: rgba(255,255,255,0.03); border-radius: 12px; padding: 13px 14px;
+  }
+  .item-icon { font-size: 21px; flex-shrink: 0; line-height: 1.4; }
+  .item-title { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 3px; }
+  .item-desc  { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.4; }
+
+  /* Mini IPV mock */
+  .ipv-mock {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(96,165,250,0.2);
+    border-radius: 14px; padding: 16px 18px; margin-top: 4px;
+  }
+  .ipv-title { font-size: 12px; font-weight: 800; color: #60a5fa; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; }
+  .ipv-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 13px;
+  }
+  .ipv-row:last-child { border-bottom: none; }
+  .ipv-label { color: rgba(255,255,255,0.5); }
+  .ipv-val { font-weight: 700; color: #fff; }
+  .ipv-val.ok  { color: #4ade80; }
+  .ipv-val.bad { color: #f87171; }
+
+  .vs { display: flex; align-items: center; font-size: 26px; font-weight: 900; color: rgba(255,255,255,0.10); flex-shrink: 0; }
+
+  .bottom { position: relative; z-index: 2; width: 100%; margin-top: 22px; }
+  .cta-strip {
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(135deg, rgba(96,165,250,0.12), rgba(91,79,207,0.12));
+    border: 1px solid rgba(96,165,250,0.28); border-radius: 18px;
+    padding: 20px 28px;
+  }
+  .cta-left { font-size: 19px; font-weight: 800; color: #fff; }
+  .cta-left span { color: #60a5fa; }
+  .cta-right { display: flex; align-items: center; gap: 20px; }
+  .cta-contact { font-size: 14px; color: rgba(255,255,255,0.4); }
+  .cta-btn {
+    background: linear-gradient(135deg, #5b4fcf, #7c6ef0);
+    color: #fff; font-size: 16px; font-weight: 800;
+    padding: 12px 24px; border-radius: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bg"></div>
+
+  <div class="top">
+    <div class="topic-badge">Control de inventario IPV</div>
+    <div class="headline">Sabes exactamente cuanto<br><span class="bad">perdiste</span> hoy en tu negocio?</div>
+  </div>
+
+  <div class="cols">
+    <div class="col col-bad">
+      <div class="col-header">
+        <div class="col-emoji">📉</div>
+        <div class="col-title">Sin ComPay</div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🤷</div>
+        <div class="item-body">
+          <div class="item-title">No sabes cuanto ingrediente se uso</div>
+          <div class="item-desc">Al final del dia faltan cosas y nadie sabe donde fueron. Las mermas se vuelven costumbre</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">📦</div>
+        <div class="item-body">
+          <div class="item-title">Conteos manuales sin respaldo</div>
+          <div class="item-desc">Papeles que se pierden, conteos que nadie verifica. Imposible detectar irregularidades</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">💸</div>
+        <div class="item-body">
+          <div class="item-title">Pierdes dinero sin darte cuenta</div>
+          <div class="item-desc">Sin saber el consumo teorico, no puedes comparar. La merma se come tus ganancias</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🚨</div>
+        <div class="item-body">
+          <div class="item-title">Te quedas sin ingredientes en pleno servicio</div>
+          <div class="item-desc">No hay alerta de stock bajo. Te enteras cuando el cliente ya pidio y no hay</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="col col-good">
+      <div class="col-header">
+        <div class="col-emoji">📊</div>
+        <div class="col-title">Con ComPay IPV</div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🔢</div>
+        <div class="item-body">
+          <div class="item-title">Stock inicial al abrir turno</div>
+          <div class="item-desc">El cocinero registra lo que hay al empezar. El sistema toma ese punto de partida</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🧮</div>
+        <div class="item-body">
+          <div class="item-title">Consumo teorico calculado automatico</div>
+          <div class="item-desc">Cada pedido descuenta segun la receta configurada. El sistema sabe cuanto debio usarse</div>
+        </div>
+      </div>
+
+      <div class="ipv-mock">
+        <div class="ipv-title">Resumen de turno — Arroz</div>
+        <div class="ipv-row"><span class="ipv-label">Stock apertura</span><span class="ipv-val">5.0 kg</span></div>
+        <div class="ipv-row"><span class="ipv-label">Consumo teorico</span><span class="ipv-val">2.4 kg</span></div>
+        <div class="ipv-row"><span class="ipv-label">Stock cierre (real)</span><span class="ipv-val">2.5 kg</span></div>
+        <div class="ipv-row"><span class="ipv-label">Diferencia (merma)</span><span class="ipv-val bad">-0.1 kg</span></div>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">🔔</div>
+        <div class="item-body">
+          <div class="item-title">Alerta de stock bajo en el dashboard</div>
+          <div class="item-desc">El admin ve un banner de alerta antes de que se acabe. Tiempo de reaccionar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="cta-strip">
+      <div class="cta-left">Controla cada gramo con <span>ComPay IPV</span> — sin sorpresas al cerrar</div>
+      <div class="cta-right">
+        <div class="cta-contact">+53 5563 3131</div>
+        <div class="cta-btn">Solicitar demo</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

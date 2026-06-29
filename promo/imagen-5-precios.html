@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1080px; height: 1080px; overflow: hidden;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+  }
+  .wrap {
+    width: 1080px; height: 1080px;
+    background: linear-gradient(150deg, #0e0b22 0%, #0a1a10 100%);
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 60px 70px;
+  }
+
+  .blob { position: absolute; border-radius: 50%; filter: blur(90px); pointer-events: none; }
+  .blob-1 { width: 500px; height: 500px; background: #5b4fcf; opacity: 0.15; top: -150px; left: -100px; }
+  .blob-2 { width: 400px; height: 400px; background: #22c55e; opacity: 0.12; bottom: -100px; right: -80px; }
+
+  .content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; align-items: center; }
+
+  .top-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(91,79,207,0.15); border: 1px solid rgba(91,79,207,0.4);
+    color: #a78bfa; font-size: 16px; font-weight: 700;
+    padding: 8px 20px; border-radius: 100px; margin-bottom: 24px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+
+  .headline {
+    font-size: 58px; font-weight: 900; color: #fff;
+    text-align: center; letter-spacing: -2px; line-height: 1.05; margin-bottom: 10px;
+  }
+  .headline .hl { color: #22c55e; }
+  .sub {
+    font-size: 20px; color: rgba(255,255,255,0.45); text-align: center;
+    max-width: 600px; margin-bottom: 44px; line-height: 1.5;
+  }
+
+  /* Pricing cards */
+  .plans { display: flex; gap: 16px; width: 100%; margin-bottom: 36px; }
+  .plan {
+    flex: 1; border-radius: 20px; padding: 24px 18px;
+    background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.09);
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    position: relative;
+  }
+  .plan.popular {
+    background: rgba(91,79,207,0.15); border-color: rgba(91,79,207,0.5);
+    transform: scale(1.04);
+    box-shadow: 0 0 40px rgba(91,79,207,0.2);
+  }
+  .pop-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, #5b4fcf, #7c6ef0);
+    color: #fff; font-size: 12px; font-weight: 800;
+    padding: 5px 16px; border-radius: 100px; letter-spacing: 0.05em; white-space: nowrap;
+  }
+  .plan-period { font-size: 13px; color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+  .plan-price { font-size: 36px; font-weight: 900; color: #fff; line-height: 1; margin-bottom: 4px; }
+  .plan-price .cur { font-size: 18px; color: rgba(255,255,255,0.5); }
+  .plan-device { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 14px; }
+  .plan-save {
+    font-size: 13px; font-weight: 700; color: #22c55e;
+    background: rgba(34,197,94,0.1); border-radius: 100px; padding: 4px 12px;
+  }
+  .plan-nosave { font-size: 13px; color: transparent; padding: 4px 12px; }
+
+  /* What's included */
+  .included {
+    display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    margin-bottom: 40px;
+  }
+  .inc {
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2);
+    color: rgba(255,255,255,0.7); font-size: 15px; font-weight: 600;
+    padding: 10px 18px; border-radius: 12px;
+  }
+  .inc .check { color: #22c55e; font-size: 16px; }
+
+  /* CTA */
+  .cta-block {
+    display: flex; align-items: center; gap: 20px;
+    background: linear-gradient(135deg, rgba(91,79,207,0.2), rgba(91,79,207,0.1));
+    border: 1px solid rgba(91,79,207,0.4);
+    border-radius: 20px; padding: 28px 36px; width: 100%; margin-bottom: 36px;
+  }
+  .cta-text { flex: 1; }
+  .cta-text .ct { font-size: 24px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+  .cta-text .cd { font-size: 17px; color: rgba(255,255,255,0.45); }
+  .cta-btn {
+    background: linear-gradient(135deg, #5b4fcf, #7c6ef0);
+    color: #fff; font-size: 18px; font-weight: 800;
+    padding: 16px 32px; border-radius: 14px; white-space: nowrap;
+    letter-spacing: 0.02em; box-shadow: 0 8px 24px rgba(91,79,207,0.4);
+  }
+
+  .footer {
+    display: flex; align-items: center; justify-content: space-between;
+    width: 100%; padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+  .brand { font-size: 22px; font-weight: 900; color: #a78bfa; }
+  .contact { font-size: 16px; color: rgba(255,255,255,0.35); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+
+  <div class="content">
+    <div class="top-badge">Licencia por dispositivo · Pagos personalizados</div>
+
+    <div class="headline">Tu decides<br><span class="hl">cuanto tiempo pagar.</span></div>
+    <div class="sub">1 mes, 2, 3, 5, 7... hasta 1 año. El tiempo que necesites, al precio que corresponde.</div>
+
+    <div class="plans">
+      <div class="plan">
+        <div class="plan-period">1 mes</div>
+        <div class="plan-price"><span class="cur">$</span>XX</div>
+        <div class="plan-device">por dispositivo</div>
+        <div class="plan-nosave">-</div>
+      </div>
+      <div class="plan">
+        <div class="plan-period">3 meses</div>
+        <div class="plan-price"><span class="cur">$</span>XX</div>
+        <div class="plan-device">por dispositivo</div>
+        <div class="plan-save">Mejor precio</div>
+      </div>
+      <div class="plan popular">
+        <div class="pop-badge">MAS POPULAR</div>
+        <div class="plan-period">6 meses</div>
+        <div class="plan-price"><span class="cur">$</span>XX</div>
+        <div class="plan-device">por dispositivo</div>
+        <div class="plan-save">Mejor precio</div>
+      </div>
+      <div class="plan">
+        <div class="plan-period">7 meses</div>
+        <div class="plan-price"><span class="cur">$</span>XX</div>
+        <div class="plan-device">por dispositivo</div>
+        <div class="plan-save">Mejor precio</div>
+      </div>
+      <div class="plan">
+        <div class="plan-period">1 año</div>
+        <div class="plan-price"><span class="cur">$</span>XX</div>
+        <div class="plan-device">por dispositivo</div>
+        <div class="plan-save">Mejor precio</div>
+      </div>
+    </div>
+
+    <div class="included">
+      <div class="inc"><span class="check">✓</span> ComPay POS incluido</div>
+      <div class="inc"><span class="check">✓</span> ComPay TV incluido</div>
+      <div class="inc"><span class="check">✓</span> Panel Admin incluido</div>
+      <div class="inc"><span class="check">✓</span> Actualizaciones gratis</div>
+      <div class="inc"><span class="check">✓</span> Soporte tecnico</div>
+    </div>
+
+    <div class="cta-block">
+      <div class="cta-text">
+        <div class="ct">Solicita tu demo gratis hoy</div>
+        <div class="cd">Prueba el sistema en tu negocio sin compromiso</div>
+      </div>
+      <div class="cta-btn">Contactar ahora &rarr;</div>
+    </div>
+
+    <div class="footer">
+      <div class="brand">ComPay</div>
+      <div class="contact">+53 5563 3131 &nbsp;&nbsp;|&nbsp;&nbsp; WhatsApp / Telegram &nbsp;&nbsp;|&nbsp;&nbsp; janderdeveloper@gmail.com</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

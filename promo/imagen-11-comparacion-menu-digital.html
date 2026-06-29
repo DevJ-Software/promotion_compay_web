@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { width: 1080px; height: 1080px; overflow: hidden; font-family: 'Segoe UI', system-ui, sans-serif; }
+  .wrap {
+    width: 1080px; height: 1080px;
+    background: #060a08;
+    position: relative; overflow: hidden;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 52px 64px 44px;
+  }
+  .bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 55% 50% at 10% 50%, rgba(239,68,68,0.08) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 50% at 90% 50%, rgba(34,197,94,0.12) 0%, transparent 55%),
+      radial-gradient(ellipse 50% 35% at 50% 0%, rgba(91,79,207,0.10) 0%, transparent 50%);
+  }
+
+  .top { text-align: center; margin-bottom: 30px; position: relative; z-index: 2; }
+  .topic-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.35);
+    color: #4ade80; font-size: 15px; font-weight: 700;
+    padding: 7px 18px; border-radius: 100px; margin-bottom: 18px;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .headline { font-size: 48px; font-weight: 900; color: #fff; letter-spacing: -2px; line-height: 1.1; }
+  .headline .bad  { color: #f87171; }
+  .headline .good { color: #4ade80; }
+
+  .cols { display: flex; gap: 20px; width: 100%; position: relative; z-index: 2; flex: 1; }
+  .col {
+    flex: 1; border-radius: 22px; padding: 26px 24px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .col-bad  { background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.18); }
+  .col-good { background: rgba(34,197,94,0.05); border: 1px solid rgba(34,197,94,0.20); }
+
+  .col-header {
+    display: flex; align-items: center; gap: 10px;
+    padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.07);
+    margin-bottom: 4px;
+  }
+  .col-emoji { font-size: 28px; }
+  .col-title { font-size: 21px; font-weight: 900; }
+  .col-bad  .col-title { color: #f87171; }
+  .col-good .col-title { color: #4ade80; }
+
+  .item {
+    display: flex; align-items: flex-start; gap: 11px;
+    background: rgba(255,255,255,0.03); border-radius: 12px; padding: 13px 14px;
+  }
+  .item-icon { font-size: 21px; flex-shrink: 0; line-height: 1.4; }
+  .item-title { font-size: 15px; font-weight: 700; color: rgba(255,255,255,0.85); margin-bottom: 3px; }
+  .item-desc  { font-size: 13px; color: rgba(255,255,255,0.42); line-height: 1.4; }
+
+  /* Mini TV mock */
+  .tv-mock {
+    background: #0a1a10; border: 1px solid rgba(34,197,94,0.25);
+    border-radius: 12px; padding: 0; overflow: hidden; margin-top: 2px;
+  }
+  .tv-mock-bar {
+    background: linear-gradient(135deg, #166534, #15803d);
+    padding: 8px 14px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .tv-mock-bar-title { font-size: 12px; font-weight: 800; color: #fff; }
+  .tv-mock-bar-live  { font-size: 11px; color: rgba(255,255,255,0.6); }
+  .tv-mock-items { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1px; background: rgba(255,255,255,0.05); }
+  .tv-mock-item {
+    background: #0d1f14; padding: 10px 8px; text-align: center;
+  }
+  .tv-mock-emo  { font-size: 20px; }
+  .tv-mock-name { font-size: 10px; color: rgba(255,255,255,0.7); font-weight: 600; margin-top: 2px; }
+  .tv-mock-price{ font-size: 13px; color: #4ade80; font-weight: 800; }
+
+  .vs { display: flex; align-items: center; font-size: 26px; font-weight: 900; color: rgba(255,255,255,0.10); flex-shrink: 0; }
+
+  /* QR highlight */
+  .qr-item {
+    display: flex; align-items: center; gap: 12px;
+    background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2);
+    border-radius: 12px; padding: 12px 14px; margin-top: 2px;
+  }
+  .qr-icon { font-size: 36px; }
+  .qr-text { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.4; }
+  .qr-text strong { color: #4ade80; font-size: 14px; }
+
+  .bottom { position: relative; z-index: 2; width: 100%; margin-top: 22px; }
+  .cta-strip {
+    display: flex; align-items: center; justify-content: space-between;
+    background: linear-gradient(135deg, rgba(34,197,94,0.14), rgba(34,197,94,0.05));
+    border: 1px solid rgba(34,197,94,0.28); border-radius: 18px;
+    padding: 20px 28px;
+  }
+  .cta-left { font-size: 19px; font-weight: 800; color: #fff; }
+  .cta-left span { color: #4ade80; }
+  .cta-right { display: flex; align-items: center; gap: 20px; }
+  .cta-contact { font-size: 14px; color: rgba(255,255,255,0.4); }
+  .cta-btn {
+    background: linear-gradient(135deg, #5b4fcf, #7c6ef0);
+    color: #fff; font-size: 16px; font-weight: 800;
+    padding: 12px 24px; border-radius: 12px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bg"></div>
+
+  <div class="top">
+    <div class="topic-badge">Menu digital en TV + QR</div>
+    <div class="headline">Tus clientes preguntan precios<br><span class="bad">20 veces al dia</span> o los <span class="good">ven solos</span>?</div>
+  </div>
+
+  <div class="cols">
+    <div class="col col-bad">
+      <div class="col-header">
+        <div class="col-emoji">😣</div>
+        <div class="col-title">Sin ComPay</div>
+      </div>
+      <div class="item">
+        <div class="item-icon">❓</div>
+        <div class="item-body">
+          <div class="item-title">"Cuanto cuesta el pollo?"</div>
+          <div class="item-desc">El cajero repite los precios decenas de veces. Pierde tiempo, pierde el hilo del pedido</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🖨️</div>
+        <div class="item-body">
+          <div class="item-title">Menu impreso desactualizado</div>
+          <div class="item-desc">Cambias un precio y tienes que reimprimir. O lo tachas a mano, que queda mal</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">🙈</div>
+        <div class="item-body">
+          <div class="item-title">El cliente no sabe que tienes disponible</div>
+          <div class="item-desc">Se vende lo que el cajero recuerda mencionar. Productos que quedan invisibles</div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="item-icon">📵</div>
+        <div class="item-body">
+          <div class="item-title">Sin aviso de pedidos listos</div>
+          <div class="item-desc">El cliente no sabe cuando su comida esta lista. Tiene que estar pendiente o preguntar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="vs">VS</div>
+
+    <div class="col col-good">
+      <div class="col-header">
+        <div class="col-emoji">📺</div>
+        <div class="col-title">Con ComPay TV</div>
+      </div>
+
+      <div class="tv-mock">
+        <div class="tv-mock-bar">
+          <div class="tv-mock-bar-title">ComPay TV — Menu</div>
+          <div class="tv-mock-bar-live">En vivo</div>
+        </div>
+        <div class="tv-mock-items">
+          <div class="tv-mock-item"><div class="tv-mock-emo">🍕</div><div class="tv-mock-name">Pizza</div><div class="tv-mock-price">$240</div></div>
+          <div class="tv-mock-item"><div class="tv-mock-emo">🐷</div><div class="tv-mock-name">Lechon</div><div class="tv-mock-price">$180</div></div>
+          <div class="tv-mock-item"><div class="tv-mock-emo">🍗</div><div class="tv-mock-name">Pollo</div><div class="tv-mock-price">$320</div></div>
+          <div class="tv-mock-item"><div class="tv-mock-emo">🥤</div><div class="tv-mock-name">Refresco</div><div class="tv-mock-price">$50</div></div>
+          <div class="tv-mock-item"><div class="tv-mock-emo">☕</div><div class="tv-mock-name">Cafe</div><div class="tv-mock-price">$40</div></div>
+          <div class="tv-mock-item"><div class="tv-mock-emo">🍺</div><div class="tv-mock-name">Cerveza</div><div class="tv-mock-price">$120</div></div>
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-icon">🔄</div>
+        <div class="item-body">
+          <div class="item-title">Precio cambiado en el movil → aparece en TV</div>
+          <div class="item-desc">Actualizacion instantanea. Sin reimprimir, sin tachar, siempre correcto</div>
+        </div>
+      </div>
+
+      <div class="qr-item">
+        <div class="qr-icon">📲</div>
+        <div class="qr-text"><strong>Bonus: Menu QR</strong><br>El cliente escanea, elige sus productos y el pedido llega directo al cajero</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="cta-strip">
+      <div class="cta-left">Pon tu menu en <span>pantalla grande</span> con ComPay TV — sin preguntas</div>
+      <div class="cta-right">
+        <div class="cta-contact">+53 5563 3131</div>
+        <div class="cta-btn">Solicitar demo</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
